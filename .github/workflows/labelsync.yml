@@ -1,0 +1,21 @@
+name: Automatic Label Sync
+
+on:
+    schedule:
+        - cron: '0 0 * * *'
+    workflow_dispatch:
+
+jobs:
+    label_sync:
+        name: Automatic Label Synchronization
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Project
+              uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3
+              with:
+                  repository: 'imranbarbhuiya/dotfiles'
+            - name: Run Label Sync
+              uses: crazy-max/ghaction-github-labeler@3de87da19416edc45c90cd89e7a4ea922a3aae5a # tag=v4
+              with:
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  yaml-file: .github/labels.yml

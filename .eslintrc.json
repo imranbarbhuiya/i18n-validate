@@ -1,0 +1,5 @@
+{
+	"root": true,
+	"extends": ["mahir/common", "mahir/node", "mahir/typescript", "mahir/prettier"],
+	"ignorePatterns": ["**/dist/*"]
+}
