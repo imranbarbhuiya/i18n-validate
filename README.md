@@ -1,28 +1,14 @@
 <div align="center">
 
-# @imranbarbhuiya/package-template
+# i18n-validate
 
-**Template for Parbez's Repositories.**
+**A cli tool to find invalid i18n keys, missing variables and many more.**
 
-[![GitHub](https://img.shields.io/github/license/imranbarbhuiya/package-template)](https://github.com/imranbarbhuiya/package-template/blob/main/LICENSE)
-[![codecov](https://codecov.io/gh/imranbarbhuiya/package-template/branch/main/graph/badge.svg?token=token)](https://codecov.io/gh/imranbarbhuiya/package-template)
-[![npm](https://img.shields.io/npm/v/@imranbarbhuiya/package-template?color=crimson&logo=npm&style=flat-square)](https://www.npmjs.com/package/@imranbarbhuiya/package-template)
+[![GitHub](https://img.shields.io/github/license/imranbarbhuiya/i18n-validate)](https://github.com/imranbarbhuiya/i18n-validate/blob/main/LICENSE)
+[![codecov](https://codecov.io/gh/imranbarbhuiya/i18n-validate/branch/main/graph/badge.svg?token=token)](https://codecov.io/gh/imranbarbhuiya/i18n-validate)
+[![npm](https://img.shields.io/npm/v/i18n-validate?color=crimson&logo=npm&style=flat-square)](https://www.npmjs.com/package/i18n-validate)
 
 </div>
-
-## Steps after creating a repo with this template
-
-1. Find and replace all instances of `template` with the package name.
-2. remove `true ||` from workflows
-3. Ensure branch protection is on
-4. Enable Codecov for the repository
-5. Remove this section from the README
-
-## Description
-
-A description of the package.
-
-Read Full Documentation [here](https://template.js.org/).
 
 ## Features
 
@@ -30,21 +16,17 @@ Read Full Documentation [here](https://template.js.org/).
 -   Offers CJS, ESM and UMD builds
 -   Full TypeScript & JavaScript support
 
-## Install
-
-You can use the following command to install this package, or replace npm install with your package manager of choice.
-
-```bash
-npm i @imranbarbhuiya/package-template
-```
-
 ## Usage
 
 ```ts
-import { fn } from 'template';
+npx i18n-validate
 ```
 
-### Some contents goes here
+## Configuration
+
+You can customize the behavior of `i18n-validate` by adding a `i18n-validate.config.json` file to the root of your project.
+
+<!-- Add info -->
 
 ## Buy me some doughnuts
 
@@ -58,6 +40,6 @@ If you want to support me by donating, you can do so by using any of the followi
 
 Thanks goes to these wonderful people:
 
-<a href="https://github.com/imranbarbhuiya/package-template/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=imranbarbhuiya/package-template" />
+<a href="https://github.com/imranbarbhuiya/i18n-validate/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=imranbarbhuiya/i18n-validate" />
 </a>

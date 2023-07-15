@@ -1,6 +1,0 @@
-{
-	"out": "./docs/",
-	"readme": "./README.md",
-	"entryPoints": ["src/index.ts"],
-	"tsconfig": "./src/tsconfig.json"
-}

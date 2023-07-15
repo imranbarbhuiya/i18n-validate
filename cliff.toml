@@ -8,9 +8,9 @@ body = """
     # [{{ version | trim_start_matches(pat="v") }}]\
     {% if previous %}\
         {% if previous.version %}\
-            (https://github.com/imranbarbhuiya/package-template/compare/{{ previous.version }}...{{ version }})\
+            (https://github.com/imranbarbhuiya/i18n-validate/compare/{{ previous.version }}...{{ version }})\
         {% else %}
-            (https://github.com/imranbarbhuiya/package-template/tree/{{ version }})\
+            (https://github.com/imranbarbhuiya/i18n-validate/tree/{{ version }})\
         {% endif %}\
     {% endif %} \
     - ({{ timestamp | date(format="%Y-%m-%d") }})
@@ -23,7 +23,7 @@ body = """
 		- {% if commit.scope %}\
 			**{{commit.scope}}:** \
 		  {% endif %}\
-            {{ commit.message | upper_first }} ([{{ commit.id | truncate(length=7, end="") }}](https://github.com/imranbarbhuiya/package-template/commit/{{ commit.id }}))\
+            {{ commit.message | upper_first }} ([{{ commit.id | truncate(length=7, end="") }}](https://github.com/imranbarbhuiya/i18n-validate/commit/{{ commit.id }}))\
 		{% if commit.breaking %}\
 			{% for breakingChange in commit.footers %}\
 				\n{% raw %}  {% endraw %}- 💥 **{{ breakingChange.token }}{{ breakingChange.separator }}** {{ breakingChange.value }}\
