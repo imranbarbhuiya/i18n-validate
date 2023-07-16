@@ -11,8 +11,7 @@ export const log = (message: any, type: LogLevel, options: OptionsWithDefault) =
 	if (logLevels.indexOf(type) < logLevels.indexOf(options.logLevel)) return;
 
 	if (type === 'error') {
-		if (options.exitOnError) throw message;
-		else console.error(errorPrefix, message);
+		console.error(errorPrefix, message);
 		return;
 	}
 

@@ -50,7 +50,7 @@ Options:
 
 You can disable the `i18n-validate` for a specific line by adding `// i18n-validate-disable-next-line` before the line.
 
-> **Note**: Currently, `i18n-validate` only supports `ts`, `tsx`, `js` and `jsx` source files and `json` translation files.
+> **Note**: Currently, `i18n-validate` only supports `typescript` and `javascript` (including `tsx` and `jsx`) source files and only `json`, `js` translation files.
 
 ### Use with lint-staged
 
@@ -90,6 +90,18 @@ If you want to support me by donating, you can do so by using any of the followi
 <a href="https://github.com/sponsors/imranbarbhuiya" target="_blank"><img src="https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86" alt="Buy Me A Coffee" height="41" width="174"></a>
 <a href="https://www.buymeacoffee.com/parbez" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 <a href='https://ko-fi.com/Y8Y1CBIJH' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi4.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+
+## TODO
+
+-   [ ] Add support for `yaml`, `json5` translation files
+-   [ ] Add support for other framework specific source files (e.g. `vue`, `svelte`, `angular` etc.)
+-   [ ] Detect unused translation keys
+-   [ ] A vscode extension
+-   [ ] A github action
+-   [ ] An eslint plugin
+-   [ ] A `--fix` flag to remove unused keys and variables
+
+_Any help to complete these tasks will be highly appreciated._
 
 ## Contributors ✨
 

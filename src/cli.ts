@@ -78,6 +78,10 @@ for await (const file of glob) {
 			if (!valid) errorCount++;
 		}
 	}
+
+	if (errorCount > 0 && options.exitOnError) {
+		break;
+	}
 }
 
 if (errorCount > 0) {
