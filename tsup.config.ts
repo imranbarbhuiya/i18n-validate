@@ -4,7 +4,7 @@ import { defineConfig } from 'tsup';
 export default defineConfig({
 	clean: true,
 	dts: true,
-	entry: ['src/cli.ts'],
+	entry: ['src/index.ts', 'src/cli.ts'],
 	format: ['esm'],
 	minify: false,
 	skipNodeModulesBundle: true,

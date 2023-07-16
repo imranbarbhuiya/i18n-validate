@@ -1,7 +1,7 @@
 {
 	"compilerOptions": {
 		"target": "esnext",
-		"module": "es2022",
+		"module": "node16",
 		"strict": true,
 		"noImplicitAny": true,
 		"strictNullChecks": true,
@@ -11,11 +11,12 @@
 		"noUnusedParameters": true,
 		"noImplicitReturns": true,
 		"noFallthroughCasesInSwitch": true,
-		"moduleResolution": "node",
+		"moduleResolution": "node16",
 		"lib": ["es2021"],
 		"declaration": true,
 		"outDir": "dist",
-		"esModuleInterop": true
+		"esModuleInterop": true,
+		"skipLibCheck": true
 	},
 	"includes": ["src/**/*.ts"]
 }
