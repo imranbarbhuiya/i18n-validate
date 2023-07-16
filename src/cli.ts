@@ -66,7 +66,7 @@ for await (const file of glob) {
 	const translationNodes = parseFile(file, options);
 
 	for (const node of translationNodes) {
-		if (node.isStaticKey) {
+		if (!node.isStaticKey) {
 			log(new ValidationError('Dynamic keys are not supported yet. Skipping', node.path, node.positions), 'warn', options);
 		} else if (!node.key || !node.namespace) {
 			log(new ValidationError('Missing translation key or namespace', node.path, node.positions), 'error', options);
