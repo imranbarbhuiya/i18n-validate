@@ -74,6 +74,15 @@ You can customize the behavior of `i18n-validate` by adding a `i18n-validate.jso
 
 > **Note**: You can also use `js`, `cjs` or `mjs` file and with any name you want. Just make sure to pass the path of the config file to `i18n-validate` using `--config` option.
 
+```js
+/**
+ * @type {import('i18n-validate').Options}
+ */
+module.exports = {
+	// ...
+};
+```
+
 ## Buy me some doughnuts
 
 If you want to support me by donating, you can do so by using any of the following methods. Thank you very much in advance!

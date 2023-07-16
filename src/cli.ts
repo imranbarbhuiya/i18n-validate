@@ -15,9 +15,9 @@ const command = new Command()
 	.version('[VI]{{inject}}[/VI]')
 	.usage('[options] <file ...>')
 	.option('-c, --config <config>', 'Path to the config file', './i18n-validate.json')
-	.option('--log-level <logLevel>', 'Log level', 'info')
-	.option('--exclude <exclude...>', 'Exclude files from parsing', '**/node_modules/**')
-	.option('--exit-on-error', 'Exit immediately if an error is found', false);
+	.option('--log-level <logLevel>', 'Log level')
+	.option('--exclude <exclude...>', 'Exclude files from parsing')
+	.option('--exit-on-error', 'Exit immediately if an error is found');
 
 command.on('--help', () => {
 	console.log('');
