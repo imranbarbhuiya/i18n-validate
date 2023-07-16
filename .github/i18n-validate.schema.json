@@ -1,0 +1,79 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"type": "object",
+	"properties": {
+		"config": {
+			"type": "string",
+			"default": "./i18n-validate.json",
+			"description": "Path to the config file"
+		},
+		"exclude": {
+			"oneOf": [
+				{
+					"type": "array",
+					"items": { "type": "string" }
+				},
+				{ "type": "string" }
+			],
+			"default": "**/node_modules/**",
+			"description": "Exclude files from parsing"
+		},
+		"exitOnError": {
+			"type": "boolean",
+			"default": false,
+			"description": "Exit immediately if an error is found"
+		},
+		"functions": {
+			"type": "array",
+			"items": { "type": "string" },
+			"default": ["t", "i18next.t", "i18n.t"],
+			"description": "Names of the translation function"
+		},
+		"inputs": {
+			"oneOf": [
+				{
+					"type": "array",
+					"items": { "type": "string" }
+				},
+				{ "type": "string" }
+			],
+			"default": "**/*.{js,jsx,ts,tsx}",
+			"description": "Glob pattern to match input files"
+		},
+		"keySeparator": {
+			"type": "string",
+			"default": ".",
+			"description": "Key separator for nested translation keys"
+		},
+		"sourceLang": {
+			"type": "string",
+			"default": "en",
+			"description": "The source language of the translation keys"
+		},
+		"localeFolder": {
+			"type": "string",
+			"default": "i18n",
+			"description": "Path to translation files"
+		},
+		"localePath": {
+			"type": "string",
+			"default": "{{lng}}/{{ns}}.json",
+			"description": "Path to translation files. You can use `{{lng}}` for language and `{{ns}}` for namespace"
+		},
+		"logLevel": {
+			"type": "string",
+			"default": "info",
+			"description": "Log level"
+		},
+		"nsSeparator": {
+			"type": "string",
+			"default": ":",
+			"description": "Namespace separator for translation keys"
+		},
+		"nsFolderSeparator": {
+			"type": "string",
+			"default": "/",
+			"description": "Folder separator for translation keys"
+		}
+	}
+}

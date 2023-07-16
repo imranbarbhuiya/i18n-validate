@@ -17,6 +17,6 @@ export class ValidationError extends Error {
 	) {
 		super(message);
 
-		this.stack = `ValidationError: ${message}\n    at ${filePath}:${positions.start.line}:${positions.start.character}-${positions.end.line}:${positions.end.character}`;
+		this.stack = `\u001B[31mValidationError\u001B[0m: ${message}\n    at ${filePath}:${positions.start.line}:${positions.start.character}-${positions.end.line}:${positions.end.character}`;
 	}
 }

@@ -31,6 +31,11 @@
 		"i18next",
 		"i18next-lint"
 	],
+	"dependencies": {
+		"commander": "^11.0.0",
+		"glob": "^10.3.3",
+		"typescript": "^5.1.6"
+	},
 	"devDependencies": {
 		"@commitlint/cli": "^17.6.6",
 		"@commitlint/config-conventional": "^17.6.6",
@@ -48,7 +53,6 @@
 		"pinst": "^3.0.0",
 		"prettier": "^3.0.0",
 		"tsup": "^7.1.0",
-		"typescript": "^5.1.6",
 		"vitest": "^0.33.0"
 	},
 	"files": [
@@ -80,10 +84,5 @@
 		"ansi-regex": "^5.0.1",
 		"minimist": "^1.2.8"
 	},
-	"packageManager": "yarn@3.6.1",
-	"dependencies": {
-		"commander": "^11.0.0",
-		"glob": "^10.3.3",
-		"is-ci": "^3.0.1"
-	}
+	"packageManager": "yarn@3.6.1"
 }

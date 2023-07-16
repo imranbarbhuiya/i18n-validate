@@ -18,19 +18,48 @@
 
 ## Usage
 
-```ts
+```sh
 npx i18n-validate
 ```
 
-> **Note:** Currently, `i18n-validate` only supports `ts`, `tsx`, `js` and `jsx` source files and `json` translation files.
+<!-- prettier-ignore-start -->
+```sh
+Usage: i18n-validate [options] <file ...>
+
+Options:
+  -V, --version                output the version number
+  -c, --config <config>        Path to the config file (default:
+                               "./i18n-validate.json")
+  --log-level <logLevel>       Log level (default: "info")
+  --exclude <exclude...>       Exclude files from parsing (default:
+                               "**/node_modules/**")
+  --exitOnError               Exit immediately if an error is found (default:
+                               false)
+  -h, --help                   display help for command
+
+  Examples:
+
+    $ i18next-validate "/path/to/src/app.js"
+    $ i18next-validate --config i18n-validate-custom.json 'src/**/*.{js,jsx}'
+    $ i18next-validate --exclude "**/node_modules/**" "src/**/*.{js,jsx}"
+```
+<!-- prettier-ignore-end -->
+
+You can disable the `i18n-validate` for a specific line by adding `// i18n-validate-disable-next-line` before the line.
+
+> **Note**: Currently, `i18n-validate` only supports `ts`, `tsx`, `js` and `jsx` source files and `json` translation files.
 
 ## Configuration
 
 You can customize the behavior of `i18n-validate` by adding a `i18n-validate.json` file to the root of your project.
 
-<!-- Add info -->
+```json
+{
+	"$schema": "https://raw.githubusercontent.com/imranbarbhuiya/i18n-validate/.github/i18n-validate.schema.json"
+}
+```
 
-> **Note:** You can also use `js`, `cjs` or `mjs` file and with any name you want. Just make sure to pass the path of the config file to `i18n-validate` using `--config` option.
+> **Note**: You can also use `js`, `cjs` or `mjs` file and with any name you want. Just make sure to pass the path of the config file to `i18n-validate` using `--config` option.
 
 ## Buy me some doughnuts
 

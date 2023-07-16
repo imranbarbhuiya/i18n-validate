@@ -44,7 +44,7 @@ export const parseFile = (filePath: string, options: OptionsWithDefault) => {
 			const ignoreFunction = node
 				.getFullText(sourceFile)
 				.split('\n')
-				.find((line) => line.includes('i18n-validate-disable-next-line'));
+				.find((line) => line.startsWith('// i18n-validate-disable-next-line'));
 
 			if (ignoreFunction) return;
 

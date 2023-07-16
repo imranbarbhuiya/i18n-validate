@@ -19,7 +19,7 @@ const importLocaleFile = async (url: string) => {
 
 	importedFiles.set(url, promise);
 
-	return promise as Promise<Record<string, unknown>>;
+	return promise;
 };
 
 export const validateKey = async (node: TranslationNode, options: OptionsWithDefault) => {
@@ -27,7 +27,7 @@ export const validateKey = async (node: TranslationNode, options: OptionsWithDef
 
 	const url = new URL(filePath, import.meta.url);
 
-	const json = await importLocaleFile(url.toString());
+	const json: Record<string, unknown> = await importLocaleFile(url.toString()).catch(() => ({}));
 
 	const key = node.key;
 
@@ -38,9 +38,9 @@ export const validateKey = async (node: TranslationNode, options: OptionsWithDef
 	) as string;
 
 	if (!value) {
-		log(new ValidationError('Invalid translation key', node.path, node.positions), 'invalidKey', options);
+		log(new ValidationError('Invalid translation key', node.path, node.positions), 'error', options);
 
-		return;
+		return false;
 	}
 
 	const variables = node.variables;
@@ -50,12 +50,16 @@ export const validateKey = async (node: TranslationNode, options: OptionsWithDef
 	const missingVariables = variables.filter((variable) => !sourceVariables.includes(variable));
 
 	if (missingVariables.length > 0) {
-		log(new ValidationError(`Missing variables: ${missingVariables.join(', ')}`, node.path, node.positions), 'missingVariable', options);
+		log(new ValidationError(`Missing variables: ${missingVariables.join(', ')}`, node.path, node.positions), 'error', options);
+		return false;
 	}
 
 	const unusedVariables = sourceVariables.filter((variable) => !variables.includes(variable));
 
 	if (unusedVariables.length > 0) {
-		log(new ValidationError(`Unused variables: ${unusedVariables.join(', ')}`, node.path, node.positions), 'unusedVariable', options);
+		log(new ValidationError(`Unused variables: ${unusedVariables.join(', ')}`, node.path, node.positions), 'error', options);
+		return false;
 	}
+
+	return true;
 };

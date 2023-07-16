@@ -1,7 +1,5 @@
 import { URL } from 'node:url';
 
-import isCI from 'is-ci';
-
 export type LogLevel = 'debug' | 'error' | 'info' | 'warn';
 
 const defaultOption = {
@@ -13,39 +11,18 @@ const defaultOption = {
 	config: './i18n-validate.json',
 
 	/**
-	 * Throw an error if invalid keys are found
-	 *
-	 * @defaultValue {isCI}
-	 *
-	 * @remarks
-	 * For CI/CD environments, it's default value is `true` else `false`
-	 */
-	errorOnInvalidKey: isCI,
-
-	/**
-	 * Throw an error if variables are missing in the source code
-	 *
-	 * @defaultValue {isCI}
-	 *
-	 * @remarks
-	 * For CI/CD environments, it's default value is `true` else `false`
-	 */
-	errorOnMissingVariable: isCI,
-
-	/**
-	 * Throw an error if variables are unused in the source code
-	 *
-	 * @defaultValue false
-	 *
-	 */
-	errorOnUnusedVariable: false,
-
-	/**
 	 * Exclude files from parsing
 	 *
 	 * @defaultValue '**\/node_modules/**'
 	 */
 	exclude: '**/node_modules/**' as string[] | string,
+
+	/**
+	 * Exit immediately if an error is found
+	 *
+	 * @defaultValue false
+	 */
+	exitOnError: false,
 
 	/**
 	 * names of the translation function
@@ -121,12 +98,6 @@ export async function parseOptionsFile(cliOptions: OptionsWithDefault): Promise<
 	const config = cliOptions.config;
 	const configUrl = new URL(config, import.meta.url);
 	const options = await import(configUrl.toString()).catch(() => ({}));
-
-	console.log(cliOptions, {
-		...defaultOption,
-		...options,
-		...cliOptions
-	});
 
 	return {
 		...defaultOption,
