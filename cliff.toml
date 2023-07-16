@@ -1,11 +1,13 @@
 [changelog]
 header = """
 # Changelog
+
 All notable changes to this project will be documented in this file.\n
 """
 body = """
 {% if version %}\
-    # [{{ version | trim_start_matches(pat="v") }}]\
+    ## [{{ version | trim_start_matches(pat="v") }}]\
+
     {% if previous %}\
         {% if previous.version %}\
             (https://github.com/imranbarbhuiya/i18n-validate/compare/{{ previous.version }}...{{ version }})\
@@ -15,10 +17,11 @@ body = """
     {% endif %} \
     - ({{ timestamp | date(format="%Y-%m-%d") }})
 {% else %}\
-    # [unreleased]
+    ## [unreleased]
 {% endif %}\
 {% for group, commits in commits | group_by(attribute="group") %}
-    ## {{ group | upper_first }}
+    ### {{ group | upper_first }}
+	
     {% for commit in commits %}
 		- {% if commit.scope %}\
 			**{{commit.scope}}:** \
