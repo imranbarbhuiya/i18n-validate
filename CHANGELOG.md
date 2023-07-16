@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.1](https://github.com/imranbarbhuiya/i18n-validate/compare/v1.2.0...v1.2.1) - (2023-07-16)
+
+### 🐛 Bug Fixes
+
+- Remove default from cli ([400de6d](https://github.com/imranbarbhuiya/i18n-validate/commit/400de6d898bf6d3b7709b600a74339c7f887bb3c))
+
 ## [1.2.0]
 (https://github.com/imranbarbhuiya/i18n-validate/tree/v1.2.0) - (2023-07-16)
 
