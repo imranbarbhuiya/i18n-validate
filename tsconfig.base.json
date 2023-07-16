@@ -1,7 +1,7 @@
 {
 	"compilerOptions": {
 		"target": "esnext",
-		"module": "commonjs",
+		"module": "es2022",
 		"strict": true,
 		"noImplicitAny": true,
 		"strictNullChecks": true,
@@ -14,7 +14,8 @@
 		"moduleResolution": "node",
 		"lib": ["es2021"],
 		"declaration": true,
-		"outDir": "dist"
+		"outDir": "dist",
+		"esModuleInterop": true
 	},
 	"includes": ["src/**/*.ts"]
 }

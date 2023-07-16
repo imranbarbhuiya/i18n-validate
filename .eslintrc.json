@@ -1,5 +1,15 @@
 {
 	"root": true,
 	"extends": ["mahir/common", "mahir/node", "mahir/typescript", "mahir/prettier"],
-	"ignorePatterns": ["**/dist/*"]
+	"ignorePatterns": ["**/dist/*"],
+	"rules": {
+		"n/shebang": [
+			"error",
+			{
+				"convertPath": {
+					"src/**/*.ts": ["^src/(.+?)\\.ts$", "dist/$1.js"]
+				}
+			}
+		]
+	}
 }

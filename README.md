@@ -22,11 +22,15 @@
 npx i18n-validate
 ```
 
+> **Note:** Currently, `i18n-validate` only supports `ts`, `tsx`, `js` and `jsx` source files and `json` translation files.
+
 ## Configuration
 
-You can customize the behavior of `i18n-validate` by adding a `i18n-validate.config.json` file to the root of your project.
+You can customize the behavior of `i18n-validate` by adding a `i18n-validate.json` file to the root of your project.
 
 <!-- Add info -->
+
+> **Note:** You can also use `js`, `cjs` or `mjs` file and with any name you want. Just make sure to pass the path of the config file to `i18n-validate` using `--config` option.
 
 ## Buy me some doughnuts
 
