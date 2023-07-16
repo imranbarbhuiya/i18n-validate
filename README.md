@@ -27,15 +27,15 @@ npx i18n-validate
 Usage: i18n-validate [options] <file ...>
 
 Options:
-  -V, --version                output the version number
-  -c, --config <config>        Path to the config file (default:
-                               "./i18n-validate.json")
-  --log-level <logLevel>       Log level (default: "info")
-  --exclude <exclude...>       Exclude files from parsing (default:
-                               "**/node_modules/**")
-  --exitOnError               Exit immediately if an error is found (default:
-                               false)
-  -h, --help                   display help for command
+  -V, --version           output the version number
+  -c, --config <config>   Path to the config file (default:
+                          "./i18n-validate.json")
+  --log-level <logLevel>  Log level (default: "info")
+  --exclude <exclude...>  Exclude files from parsing (default:
+                          "**/node_modules/**")
+  --exit-on-error         Exit immediately if an error is found (default:
+                          false)
+  -h, --help              display help for command
 
   Examples:
 
@@ -55,7 +55,7 @@ You can customize the behavior of `i18n-validate` by adding a `i18n-validate.jso
 
 ```json
 {
-	"$schema": "https://raw.githubusercontent.com/imranbarbhuiya/i18n-validate/.github/i18n-validate.schema.json"
+	"$schema": "https://raw.githubusercontent.com/imranbarbhuiya/i18n-validate/main/.github/i18n-validate.schema.json"
 }
 ```
 

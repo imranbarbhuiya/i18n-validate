@@ -23,7 +23,9 @@ const importLocaleFile = async (url: string) => {
 };
 
 export const validateKey = async (node: TranslationNode, options: OptionsWithDefault) => {
-	const filePath = `${options.localeFolder}/${options.sourceLang}/${node.namespace}.json`;
+	const filePath = `${options.localeFolder}/${options.localePath.replaceAll('{{lng}}', options.sourceLang).replaceAll('{{ns}}', node.namespace)}`;
+
+	log(`Fetching translation keys from ${filePath}`, 'debug', options);
 
 	const url = new URL(filePath, import.meta.url);
 
