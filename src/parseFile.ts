@@ -3,6 +3,7 @@ import ts from 'typescript';
 import type { OptionsWithDefault } from './parseOptionsFile.js';
 
 export interface TranslationNode {
+	isStaticKey: boolean;
 	key: string;
 	namespace: string;
 	path: string;
@@ -53,7 +54,12 @@ export const parseFile = (filePath: string, options: OptionsWithDefault) => {
 			/* eslint-disable @typescript-eslint/no-unnecessary-condition */
 			const keyWithNamespace = firstArg?.getText(sourceFile);
 
-			const [key, namespace] = keyWithNamespace?.split(options.nsSeparator) ?? [keyWithNamespace, ''];
+			const isStaticKey =
+				keyWithNamespace?.startsWith("'") ||
+				keyWithNamespace?.startsWith('"') ||
+				(keyWithNamespace?.startsWith('`') && !keyWithNamespace?.includes('${'));
+
+			const [namespace, key] = isStaticKey ? keyWithNamespace?.slice(1, -1).split(options.nsSeparator) ?? [keyWithNamespace, ''] : ['', ''];
 
 			let variables: string[] = [];
 			if (secondArg && ts.isObjectLiteralExpression(secondArg)) {
@@ -84,7 +90,8 @@ export const parseFile = (filePath: string, options: OptionsWithDefault) => {
 						line: end.line + 1
 					}
 				},
-				variables
+				variables,
+				isStaticKey
 			});
 		}
 

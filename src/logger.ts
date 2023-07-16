@@ -2,6 +2,7 @@ import type { LogLevel, OptionsWithDefault } from './parseOptionsFile.js';
 
 const logLevels = ['debug', 'info', 'warn', 'error'] as const;
 
+const errorPrefix = '\u001B[31m[ERROR]\u001B[0m';
 const warnPrefix = '\u001B[33m[WARN]\u001B[0m';
 const infoPrefix = '\u001B[34m[INFO]\u001B[0m';
 const debugPrefix = '[DEBUG]';
@@ -11,7 +12,7 @@ export const log = (message: any, type: LogLevel, options: OptionsWithDefault) =
 
 	if (type === 'error') {
 		if (options.exitOnError) throw message;
-		else console.error(message);
+		else console.error(errorPrefix, message);
 		return;
 	}
 
