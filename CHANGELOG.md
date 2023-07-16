@@ -2,11 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
-## [@imranbarbhuiya/i18n-validate@1.1.1]
-(https://github.com/imranbarbhuiya/i18n-validate/tree/@imranbarbhuiya/i18n-validate@1.1.1) - (2023-07-16)
+## [1.2.0]
+(https://github.com/imranbarbhuiya/i18n-validate/tree/v1.2.0) - (2023-07-16)
 
 ### 🐛 Bug Fixes
-
 
 - Loading of config file ([9fb3c5c](https://github.com/imranbarbhuiya/i18n-validate/commit/9fb3c5c37a1e9c2e20d71481f6c2aeeb6943590e))
 - Changelog ([fad18e9](https://github.com/imranbarbhuiya/i18n-validate/commit/fad18e93e2a8583a4303678f3c7a1b706600a514))
@@ -20,10 +19,17 @@ All notable changes to this project will be documented in this file.
 
 ### 🚀 Features
 
-
 - Support plural keys ([40f411e](https://github.com/imranbarbhuiya/i18n-validate/commit/40f411ee91b4fc91bdb9ad4c11c03cd16c05c43c))
 - Complete validator ([1fbab2c](https://github.com/imranbarbhuiya/i18n-validate/commit/1fbab2cdf8229702706b207f81c988002b93f3d7))
 - Add parser ([56028b5](https://github.com/imranbarbhuiya/i18n-validate/commit/56028b5d249eb8f2646b865d0658565f579c9b1a))
+
+## [@imranbarbhuiya/i18n-validate@1.1.1]
+
+(https://github.com/imranbarbhuiya/i18n-validate/tree/@imranbarbhuiya/i18n-validate@1.1.1) - (2023-07-16)
+
+### 🐛 Bug Fixes
+
+-   Loading of config file ([9fb3c5c](https://github.com/imranbarbhuiya/i18n-validate/commit/9fb3c5c37a1e9c2e20d71481f6c2aeeb6943590e))
 
 ## [@imranbarbhuiya/i18n-validate@1.1.0]
 
