@@ -52,14 +52,14 @@ export const validateKey = async (node: TranslationNode, options: OptionsWithDef
 
 	const sourceVariables = value.match(/{{(?<var>.*?)}}/g)?.map((variable) => variable.slice(2, -2)) ?? [];
 
-	const missingVariables = variables.filter((variable) => !sourceVariables.includes(variable));
+	const missingVariables = sourceVariables.filter((variable) => !variables.includes(variable));
 
 	if (missingVariables.length > 0) {
 		log(new ValidationError(`Missing variables: ${missingVariables.join(', ')}`, node.path, node.positions), 'error', options);
 		return false;
 	}
 
-	const unusedVariables = sourceVariables.filter((variable) => !variables.includes(variable));
+	const unusedVariables = variables.filter((variable) => !sourceVariables.includes(variable));
 
 	if (unusedVariables.length > 0) {
 		log(new ValidationError(`Unused variables: ${unusedVariables.join(', ')}`, node.path, node.positions), 'error', options);
