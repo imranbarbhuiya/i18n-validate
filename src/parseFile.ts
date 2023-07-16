@@ -64,7 +64,7 @@ export const parseFile = (filePath: string, options: OptionsWithDefault) => {
 			let variables: string[] = [];
 			if (secondArg && ts.isObjectLiteralExpression(secondArg)) {
 				variables = secondArg.properties.map((prop) => {
-					if (ts.isPropertyAssignment(prop)) {
+					if (prop.name) {
 						return prop.name.getText(sourceFile);
 					}
 

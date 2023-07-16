@@ -9,7 +9,9 @@ t(a);
 
 t(`a:${a}`);
 
-t('Hello world', { name: 'John Doe' });
+const b = 'b';
+
+t('Hello world', { name: 'John Doe', b });
 
 // i18n-validate-disable-next-line custom fn
 t('ok');
