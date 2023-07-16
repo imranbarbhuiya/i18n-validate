@@ -9,10 +9,12 @@ import type { OptionsWithDefault } from './parseOptionsFile.js';
 
 const importedFiles = new Map<string, Promise<Record<string, unknown>>>();
 
-const importLocaleFile = async (url: string) => {
+const importLocaleFile = async (url: string, options: OptionsWithDefault) => {
 	if (importedFiles.has(url)) return importedFiles.get(url)!;
 
-	const promise = import(url, {
+	log(`Fetching translation keys from ${url}`, 'debug', options);
+
+	const promise = import(`file://${url}`, {
 		assert: {
 			type: 'json'
 		}
@@ -26,29 +28,34 @@ const importLocaleFile = async (url: string) => {
 export const validateKey = async (node: TranslationNode, options: OptionsWithDefault) => {
 	const filePath = `${options.localeFolder}/${options.localePath.replaceAll('{{lng}}', options.sourceLang).replaceAll('{{ns}}', node.namespace)}`;
 
-	log(`Fetching translation keys from ${filePath}`, 'debug', options);
-
 	const url = join(process.cwd(), filePath).replaceAll('\\', '/');
 
-	const { default: json }: { default: Record<string, unknown> } = await importLocaleFile(`file://${url}`).catch(() => ({
+	const { default: json }: { default: Record<string, unknown> } = await importLocaleFile(url, options).catch(() => ({
 		default: {}
 	}));
 
 	const key = node.key;
+	const variables = node.variables;
 
-	const value = (
+	let value = (
 		key.includes(options.keySeparator)
 			? key.split(options.keySeparator).reduce((acc, cur) => acc[cur] as Record<string, unknown>, json)
 			: json[key]
-	) as string;
+	) as string | undefined;
+
+	if (!value && options.pluralSuffixes.length > 0 && variables.includes('count')) {
+		const pluralizedKeys = options.pluralSuffixes.map((suffix) => `${node.key}${options.pluralSeparator}${suffix}`);
+
+		const relatedKey = Object.keys(json).find((key) => pluralizedKeys.includes(key));
+
+		if (relatedKey) value = json[relatedKey] as string;
+	}
 
 	if (!value) {
 		log(new ValidationError('Invalid translation key', node.path, node.positions), 'error', options);
 
 		return false;
 	}
-
-	const variables = node.variables;
 
 	const sourceVariables = value.match(/{{(?<var>.*?)}}/g)?.map((variable) => variable.slice(2, -2)) ?? [];
 

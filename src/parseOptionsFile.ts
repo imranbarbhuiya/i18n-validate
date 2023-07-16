@@ -90,7 +90,19 @@ const defaultOption = {
 	 *
 	 * @defaultValue '/'
 	 */
-	nsFolderSeparator: '/'
+	nsFolderSeparator: '/',
+
+	/**
+	 * Suffixes to use for plural keys
+	 */
+	pluralSuffixes: ['plural', 'zero', 'one', 'two', 'few', 'many', 'other', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
+
+	/**
+	 * Plural separator for translation keys
+	 *
+	 * @defaultValue '_'
+	 */
+	pluralSeparator: '_'
 };
 
 export type OptionsWithDefault = typeof defaultOption;

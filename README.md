@@ -13,8 +13,11 @@
 ## Features
 
 -   Written In Typescript
--   Offers CJS, ESM and UMD builds
+-   Offers CLI and API
 -   Full TypeScript & JavaScript support
+-   Framework agnostic
+-   Supports Pluralization
+-   Fully customizable
 
 ## Usage
 
@@ -48,6 +51,16 @@ Options:
 You can disable the `i18n-validate` for a specific line by adding `// i18n-validate-disable-next-line` before the line.
 
 > **Note**: Currently, `i18n-validate` only supports `ts`, `tsx`, `js` and `jsx` source files and `json` translation files.
+
+### Use with lint-staged
+
+```json
+{
+	"lint-staged": {
+		"*.{js,jsx,ts,tsx}": ["i18n-validate"]
+	}
+}
+```
 
 ## Configuration
 
