@@ -1,4 +1,5 @@
-import { URL } from 'node:url';
+import { join } from 'node:path';
+import process from 'node:process';
 
 import { ValidationError } from './Error.js';
 import { log } from './logger.js';
@@ -27,9 +28,11 @@ export const validateKey = async (node: TranslationNode, options: OptionsWithDef
 
 	log(`Fetching translation keys from ${filePath}`, 'debug', options);
 
-	const url = new URL(filePath, import.meta.url);
+	const url = join(process.cwd(), filePath).replaceAll('\\', '/');
 
-	const json: Record<string, unknown> = await importLocaleFile(url.toString()).catch(() => ({}));
+	const { default: json }: { default: Record<string, unknown> } = await importLocaleFile(`file://${url}`).catch(() => ({
+		default: {}
+	}));
 
 	const key = node.key;
 

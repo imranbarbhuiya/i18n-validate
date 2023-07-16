@@ -60,6 +60,7 @@ const glob = new Glob(options.inputs, {
 });
 
 let errorCount = 0;
+let warningCount = 0;
 
 for await (const file of glob) {
 	log(`Parsing ${file}`, 'debug', options);
@@ -68,6 +69,7 @@ for await (const file of glob) {
 	for (const node of translationNodes) {
 		if (!node.isStaticKey) {
 			log(new ValidationError('Dynamic keys are not supported yet. Skipping', node.path, node.positions), 'warn', options);
+			warningCount++;
 		} else if (!node.key || !node.namespace) {
 			log(new ValidationError('Missing translation key or namespace', node.path, node.positions), 'error', options);
 			errorCount++;
@@ -79,9 +81,9 @@ for await (const file of glob) {
 }
 
 if (errorCount > 0) {
-	log(`Found ${errorCount} errors`, 'error', options);
+	log(`Found ${errorCount} errors and ${warningCount} warnings`, 'info', options);
 	process.exit(1);
 } else {
-	log(`Found ${errorCount} errors`, 'info', options);
+	log(`Found ${errorCount} errors and ${warningCount} warnings`, 'info', options);
 	process.exit(0);
 }

@@ -1,4 +1,5 @@
-import { URL } from 'node:url';
+import { join } from 'node:path';
+import process from 'node:process';
 
 export type LogLevel = 'debug' | 'error' | 'info' | 'warn';
 
@@ -96,12 +97,14 @@ export type OptionsWithDefault = typeof defaultOption;
 
 export async function parseOptionsFile(cliOptions: OptionsWithDefault): Promise<OptionsWithDefault> {
 	const config = cliOptions.config;
-	const configUrl = new URL(config, import.meta.url);
-	const options = await import(configUrl.toString()).catch(() => ({}));
+	const configUrl = join(process.cwd(), config).replaceAll('\\', '/');
+	const options = await import(`file://${configUrl}`).catch(() => ({
+		default: {}
+	}));
 
 	return {
 		...defaultOption,
-		...options,
+		...options.default,
 		...cliOptions
 	};
 }
