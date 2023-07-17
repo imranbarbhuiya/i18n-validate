@@ -7,7 +7,11 @@ const a = 'a:b';
 
 t(a);
 
-t(`a:${a}`);
+t("'b'");
+
+t(`ab`);
+
+console.log(t(`a:${a}`));
 
 const b = 'b';
 
@@ -19,3 +23,13 @@ t('ok');
 
 /* i18n-validate-disable-next-line custom fn */
 t('ok');
+
+t(`a:${b}`);
+
+// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+t(true ? 'first' : 'second');
+
+t(`a:${'b'}k`);
+
+// eslint-disable-next-line no-useless-concat
+t('a' + 'b');

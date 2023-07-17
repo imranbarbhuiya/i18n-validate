@@ -7,23 +7,30 @@ const warnPrefix = '\u001B[33m[WARN]\u001B[0m';
 const infoPrefix = '\u001B[34m[INFO]\u001B[0m';
 const debugPrefix = '[DEBUG]';
 
-export const log = (message: any, type: LogLevel, options: OptionsWithDefault) => {
+export const log = (
+	message: any,
+	type: LogLevel,
+	options: OptionsWithDefault,
+	logger: {
+		[type in LogLevel]: (...args: any[]) => void;
+	} = console
+) => {
 	if (logLevels.indexOf(type) < logLevels.indexOf(options.logLevel)) return;
 
 	if (type === 'error') {
-		console.error(errorPrefix, message);
+		logger.error(errorPrefix, message);
 		return;
 	}
 
 	if (type === 'warn') {
-		console.warn(warnPrefix, message);
+		logger.warn(warnPrefix, message);
 		return;
 	}
 
 	if (type === 'info') {
-		console.log(infoPrefix, message);
+		logger.info(infoPrefix, message);
 		return;
 	}
 
-	console.log(debugPrefix, message);
+	logger.debug(debugPrefix, message);
 };

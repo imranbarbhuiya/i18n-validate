@@ -30,16 +30,20 @@ export const validateKey = async (node: TranslationNode, options: OptionsWithDef
 
 	const url = join(process.cwd(), filePath).replaceAll('\\', '/');
 
-	const { default: json }: { default: Record<string, unknown> } = await importLocaleFile(url, options).catch(() => ({
-		default: {}
-	}));
+	const { default: json }: { default: Record<string, unknown> | null } = await importLocaleFile(url, options).catch(() => ({ default: null }));
+
+	if (!json) {
+		log(new ValidationError(`Invalid locale file: ${filePath}`, node.path, node.positions), 'error', options);
+
+		return false;
+	}
 
 	const key = node.key;
 	const variables = node.variables;
 
 	let value = (
 		key.includes(options.keySeparator)
-			? key.split(options.keySeparator).reduce((acc, cur) => acc[cur] as Record<string, unknown>, json)
+			? json[key] ?? key.split(options.keySeparator).reduce((acc, cur) => acc[cur] as Record<string, unknown>, json)
 			: json[key]
 	) as string | undefined;
 
@@ -52,7 +56,7 @@ export const validateKey = async (node: TranslationNode, options: OptionsWithDef
 	}
 
 	if (!value) {
-		log(new ValidationError('Invalid translation key', node.path, node.positions), 'error', options);
+		log(new ValidationError(`Invalid translation key: ${key}`, node.path, node.positions), 'error', options);
 
 		return false;
 	}

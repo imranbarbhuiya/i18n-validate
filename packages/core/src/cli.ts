@@ -68,14 +68,22 @@ for await (const file of glob) {
 
 	for (const node of translationNodes) {
 		if (!node.isStaticKey) {
-			log(new ValidationError('Dynamic keys are not supported yet. Skipping', node.path, node.positions), 'warn', options);
+			log(
+				new ValidationError(node.key ? 'Dynamic keys are not supported yet. Skipping' : 'No key provided', node.path, node.positions),
+				'warn',
+				options
+			);
 			warningCount++;
-		} else if (!node.key || !node.namespace) {
-			log(new ValidationError('Missing translation key or namespace', node.path, node.positions), 'error', options);
-			errorCount++;
-		} else {
+		} else if (node.key && node.namespace) {
 			const valid = await validateKey(node, options);
 			if (!valid) errorCount++;
+		} else {
+			log(
+				new ValidationError(node.key ? 'Missing translation namespace' : 'Missing translation key', node.path, node.positions),
+				'error',
+				options
+			);
+			errorCount++;
 		}
 	}
 

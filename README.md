@@ -101,6 +101,7 @@ If you want to support me by donating, you can do so by using any of the followi
 -   [ ] A github action
 -   [ ] An eslint plugin
 -   [ ] A `--fix` flag to remove unused keys and variables
+-   [ ] Support dynamic keys using comments
 
 _Any help to complete these tasks will be highly appreciated._
 
