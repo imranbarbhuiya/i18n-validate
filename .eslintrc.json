@@ -2,14 +2,7 @@
 	"root": true,
 	"extends": ["mahir/common", "mahir/node", "mahir/typescript", "mahir/prettier"],
 	"ignorePatterns": ["**/dist/*"],
-	"rules": {
-		"n/shebang": [
-			"error",
-			{
-				"convertPath": {
-					"src/**/*.ts": ["^src/(.+?)\\.ts$", "dist/$1.js"]
-				}
-			}
-		]
+	"parserOptions": {
+		"project": ["./tsconfig.eslint.json", "./packages/*/tsconfig.eslint.json"]
 	}
 }

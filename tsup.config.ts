@@ -1,19 +1,22 @@
-import { esbuildPluginVersionInjector } from 'esbuild-plugin-version-injector';
-import { defineConfig } from 'tsup';
+import { relative, resolve as resolveDir } from 'node:path';
+import process from 'node:process';
 
-export default defineConfig({
-	clean: true,
-	dts: {
-		entry: 'src/index.ts'
-	},
-	entry: ['src/index.ts', 'src/cli.ts'],
-	format: ['esm'],
-	minify: false,
-	skipNodeModulesBundle: true,
-	sourcemap: true,
-	target: 'esnext',
-	keepNames: true,
-	tsconfig: 'src/tsconfig.json',
-	treeshake: true,
-	esbuildPlugins: [esbuildPluginVersionInjector()]
-});
+import { defineConfig, type Options } from 'tsup';
+
+export const createTsupConfig = (options: Options = {}) =>
+	defineConfig({
+		clean: true,
+		dts: {
+			entry: 'src/index.ts'
+		},
+		entry: ['src/index.ts', 'src/cli.ts'],
+		format: ['esm'],
+		minify: false,
+		skipNodeModulesBundle: true,
+		sourcemap: true,
+		target: 'esnext',
+		keepNames: true,
+		tsconfig: relative(__dirname, resolveDir(process.cwd(), 'src', 'tsconfig.json')),
+		treeshake: true,
+		...options
+	});

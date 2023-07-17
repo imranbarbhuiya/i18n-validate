@@ -1,0 +1,30 @@
+{
+	"$schema": "https://turborepo.org/schema.json",
+	"pipeline": {
+		"build": {
+			"dependsOn": ["^build"],
+			"outputs": ["dist/**"]
+		},
+		"bump": {
+			"dependsOn": [],
+			"outputs": ["CHANGELOG.md"],
+			"cache": false
+		},
+		"check-update": {
+			"dependsOn": [],
+			"outputs": []
+		},
+		"lint": {
+			"dependsOn": ["^build"],
+			"outputs": []
+		},
+		"test": {
+			"dependsOn": ["^build"],
+			"outputs": ["**/coverage/**"]
+		},
+		"test:watch": {
+			"dependsOn": ["^build"],
+			"outputs": ["**/coverage/**"]
+		}
+	}
+}

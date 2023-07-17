@@ -1,10 +1,11 @@
 import { defineConfig } from 'vitest/config';
 
-export default defineConfig({
-	test: {
-		globals: true,
-		coverage: {
-			reporter: ['text', 'lcov', 'clover']
+export const createVitestConfig = () =>
+	defineConfig({
+		test: {
+			globals: true,
+			coverage: {
+				reporter: ['text', 'lcov', 'clover']
+			}
 		}
-	}
-});
+	});
