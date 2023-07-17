@@ -1,0 +1,13 @@
+{
+	"extends": "../../.eslintrc.json",
+	"rules": {
+		"n/shebang": [
+			"error",
+			{
+				"convertPath": {
+					"src/**/*.ts": ["^src/(.+?)\\.ts$", "dist/$1.js"]
+				}
+			}
+		]
+	}
+}

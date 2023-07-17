@@ -4,9 +4,10 @@
 
 **A cli tool to find invalid i18n keys, missing variables and many more.**
 
-[![GitHub](https://img.shields.io/github/license/imranbarbhuiya/i18n-validate)](https://github.com/imranbarbhuiya/i18n-validate/blob/main/LICENSE)
-[![codecov](https://codecov.io/gh/imranbarbhuiya/i18n-validate/branch/main/graph/badge.svg?token=token)](https://codecov.io/gh/imranbarbhuiya/i18n-validate)
+## Packages
+
 [![npm](https://img.shields.io/npm/v/i18n-validate?color=crimson&logo=npm&style=flat-square)](https://www.npmjs.com/package/i18n-validate)
+[![npm-i18n-validate](https://img.shields.io/npm/dw/i18n-validate)](https://www.npmjs.com/package/i18n-validate)
 
 </div>
 
@@ -18,6 +19,7 @@
 -   Framework agnostic
 -   Supports Pluralization
 -   Fully customizable
+-   Use of ternary operator or string concatenation using `+` operator is supported
 
 ## Usage
 
@@ -49,6 +51,7 @@ Options:
 <!-- prettier-ignore-end -->
 
 -   You can ignore a specific function by adding `// i18n-validate-disable-next-line` comment before the function call or ignore all the functions in a file by adding `/* i18n-validate-disable */` comment at the top of the file.
+-   Dynamic keys aren't supported yet but ternary operators, string concatenation using `+` operator are supported.
 
 > **Note**: Currently, `i18n-validate` supports `typescript` and `javascript` (including `tsx` and `jsx`) source files and `json` translation files only.
 

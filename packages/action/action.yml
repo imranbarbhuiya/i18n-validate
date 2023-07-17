@@ -1,0 +1,16 @@
+name: 'i18n validator'
+description: 'A github action tool to find invalid i18n keys, missing variables and many more.'
+inputs:
+    include:
+        description: 'The files to include'
+    exclude:
+        description: 'The files to exclude'
+    # TODO: add other cli options
+outputs:
+    errors-count:
+        description: 'The number of errors found'
+    warnings-count:
+        description: 'The number of warnings found'
+runs:
+    using: 'node16'
+    main: 'index.js'

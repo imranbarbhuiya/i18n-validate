@@ -1,0 +1,10 @@
+{
+	"name": "i18n-validate-action",
+	"description": "A github action to find invalid i18n keys, missing variables and many more using i18n-validate.",
+	"version": "0.0.1",
+	"type": "module",
+	"dependencies": {
+		"@actions/core": "^1.10.0",
+		"@actions/github": "^5.1.1"
+	}
+}
