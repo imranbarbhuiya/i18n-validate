@@ -9,11 +9,11 @@ export interface TranslationNode {
 	path: string;
 	positions: {
 		end: {
-			character: number;
+			col: number;
 			line: number;
 		};
 		start: {
-			character: number;
+			col: number;
 			line: number;
 		};
 	};
@@ -25,27 +25,26 @@ export const parseFile = (filePath: string, options: OptionsWithDefault) => {
 
 	const nodes: TranslationNode[] = [];
 
-	// TODO: Add support for ignoreFile
-	// const ignoreFile = sourceFile
-	// 	.getFullText(sourceFile)
-	// 	.split('\n')
-	// 	.filter((line) => line.startsWith('use ') || !line.trim())
-	// 	.reduce<string[]>((acc, line) => {
-	// 		if (!line.startsWith('//')) {
-	// 			return acc;
-	// 		}
+	const fullText = sourceFile.getFullText();
 
-	// 		return [...acc, line];
-	// 	}, [])
-	// 	.find((line) => line.includes('i18n-validate-disable-file'));
-	// if (ignoreFile) return nodes;
+	const topLevelComments = ts
+		.getLeadingCommentRanges(fullText, sourceFile.getFullStart())
+		?.filter((comment) => comment.kind === ts.SyntaxKind.MultiLineCommentTrivia);
+
+	if (topLevelComments) {
+		const comment = topLevelComments.map((topLevelComment) => fullText.slice(topLevelComment.pos, topLevelComment.end));
+
+		const ignoreFile = comment.find((comment) => /^\/\*(?:\s+)?i18n-validate-disable(?:\s.*)?\*\/$/.exec(comment.trim()));
+
+		if (ignoreFile) return nodes;
+	}
 
 	const visit = (node: ts.Node) => {
 		if (ts.isCallExpression(node) && options.functions.includes(node.expression.getText(sourceFile))) {
 			const ignoreFunction = node
 				.getFullText(sourceFile)
 				.split('\n')
-				.find((line) => line.startsWith('// i18n-validate-disable-next-line'));
+				.find((line) => /^(?:\/\/|\/\*)(?:\s+)?i18n-validate-disable-next-line(?:\s.*)?(?:\*\/)?$/.test(line.trim()));
 
 			if (ignoreFunction) return;
 
@@ -82,11 +81,11 @@ export const parseFile = (filePath: string, options: OptionsWithDefault) => {
 				path: filePath,
 				positions: {
 					start: {
-						character: start.character,
+						col: start.character,
 						line: start.line + 1
 					},
 					end: {
-						character: end.character,
+						col: end.character,
 						line: end.line + 1
 					}
 				},

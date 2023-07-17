@@ -48,9 +48,9 @@ Options:
 ```
 <!-- prettier-ignore-end -->
 
-You can disable the `i18n-validate` for a specific line by adding `// i18n-validate-disable-next-line` before the line.
+-   You can ignore a specific function by adding `// i18n-validate-disable-next-line` comment before the function call or ignore all the functions in a file by adding `/* i18n-validate-disable */` comment at the top of the file.
 
-> **Note**: Currently, `i18n-validate` only supports `typescript` and `javascript` (including `tsx` and `jsx`) source files and only `json`, `js` translation files.
+> **Note**: Currently, `i18n-validate` supports `typescript` and `javascript` (including `tsx` and `jsx`) source files and `json` translation files only.
 
 ### Use with lint-staged
 
@@ -93,6 +93,7 @@ If you want to support me by donating, you can do so by using any of the followi
 
 ## TODO
 
+-   [ ] Write unit tests
 -   [ ] Add support for `yaml`, `json5` translation files
 -   [ ] Add support for other framework specific source files (e.g. `vue`, `svelte`, `angular` etc.)
 -   [ ] Detect unused translation keys

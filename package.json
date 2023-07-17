@@ -3,6 +3,7 @@
 	"version": "1.2.1",
 	"description": "A cli tool to find invalid i18n keys, missing variables and many more",
 	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
 	"bin": "./dist/cli.js",
 	"type": "module",
 	"sideEffects": false,
@@ -11,7 +12,7 @@
 	"scripts": {
 		"lint": "eslint src tests --fix --cache",
 		"format": "prettier --write . --cache",
-		"test": "true || vitest run",
+		"test": "vitest run",
 		"test:watch": "vitest",
 		"update": "yarn upgrade-interactive",
 		"build": "tsup",
