@@ -6,10 +6,8 @@ import { defineConfig, type Options } from 'tsup';
 export const createTsupConfig = (options: Options = {}) =>
 	defineConfig({
 		clean: true,
-		dts: {
-			entry: 'src/index.ts'
-		},
-		entry: ['src/index.ts', 'src/cli.ts'],
+		dts: true,
+		entry: ['src/index.ts'],
 		format: ['esm'],
 		minify: false,
 		skipNodeModulesBundle: true,

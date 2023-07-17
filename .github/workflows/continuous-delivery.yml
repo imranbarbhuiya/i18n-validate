@@ -39,7 +39,7 @@ jobs:
                   cache: yarn
                   registry-url: https://registry.yarnpkg.com/
             - name: Install Dependencies
-              run: yarn --immutable
+              uses: ./scripts/yarnCache
             - name: Bump Version & Publish
               run: |
                   # Resolve the tag to be used. "next" for push events, "pr-{prNumber}" for dispatch events.
