@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [i18n-validate@1.3.0](https://github.com/imranbarbhuiya/i18n-validate/compare/v1.2.1...i18n-validate@1.3.0) - (2023-07-18)
+
+### 🐛 Bug Fixes
+
+- Add time taken log ([91a1533](https://github.com/imranbarbhuiya/i18n-validate/commit/91a153309bbfef7450b46cced9091a68ccb6e9f8))
+
+### 🚀 Features
+
+- Support ternary and string concatenation in key ([943682f](https://github.com/imranbarbhuiya/i18n-validate/commit/943682f7aefac0da152ae2ae240c1c314c6d1f16))
+
 ## [1.2.1](https://github.com/imranbarbhuiya/i18n-validate/compare/v1.2.0...v1.2.1) - (2023-07-16)
 
 ### 🐛 Bug Fixes
