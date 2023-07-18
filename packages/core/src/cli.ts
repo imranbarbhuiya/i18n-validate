@@ -73,7 +73,13 @@ for await (const file of glob) {
 	for (const node of translationNodes) {
 		if (!node.isStaticKey) {
 			log(
-				new ValidationError(node.key ? 'Dynamic keys are not supported yet. Skipping' : 'No key provided', node.path, node.positions),
+				new ValidationError(
+					node.key
+						? "Dynamically typed keys aren't supported. Please add a const type to the key for it to work.\nPlease check https://github.com/imranbarbhuiya/i18n-validate#dynamic-keys for more information"
+						: 'No key provided',
+					node.path,
+					node.positions
+				),
 				'warn',
 				options
 			);
@@ -101,7 +107,7 @@ const timeTaken = `${(performance.now() - start).toFixed(2)}ms`;
 log(
 	`Found ${errorCount + warningCount} issues${
 		errorCount || warningCount ? ` (${errorCount} errors and ${warningCount} warnings)` : ''
-	}.Validated ${fileCount} in ${timeTaken}`,
+	}.Validated ${fileCount} file${fileCount > 1 ? 's' : ''} in ${timeTaken}`,
 	'info',
 	options
 );

@@ -20,8 +20,75 @@ export interface TranslationNode {
 	variables: string[];
 }
 
-export const parseFile = (filePath: string, options: OptionsWithDefault) => {
+const sourceFiles = new Map<string, ts.SourceFile>();
+
+const getSourceFile = (filePath: string) => {
+	if (sourceFiles.has(filePath)) return sourceFiles.get(filePath)!;
+
 	const sourceFile = ts.createSourceFile(filePath, ts.sys.readFile(filePath) ?? '', ts.ScriptTarget.ESNext, true);
+	sourceFiles.set(filePath, sourceFile);
+
+	return sourceFile;
+};
+
+const typecheckerMap = new Map<string, ts.TypeChecker>();
+
+const getTypeChecker = (filePath: string) => {
+	if (typecheckerMap.has(filePath)) return typecheckerMap.get(filePath)!;
+
+	const typechecker = ts
+		.createProgram([filePath], {
+			checkJs: ['.js', '.jsx'].some((ext) => filePath.endsWith(ext))
+		})
+		.getTypeChecker();
+	typecheckerMap.set(filePath, typechecker);
+
+	return typechecker;
+};
+
+// export const getKeys = (node: ts.Node, sourceFile: ts.SourceFile, filePath: string) => {
+// 	const isStaticKey = ts.isStringLiteral(node) || ts.isNoSubstitutionTemplateLiteral(node);
+
+// 	if (isStaticKey) return [node.getText(sourceFile)];
+// 	const keyWithNamespaces = [];
+
+// 	if (ts.isTemplateExpression(node) || ts.isIdentifier(node) || ts.isAsExpression(node)) {
+// 		const typeChecker = getTypeChecker(filePath);
+// 		const firstArgType = typeChecker.getTypeAtLocation(node);
+
+// 		if (firstArgType.isStringLiteral()) {
+// 			keyWithNamespaces.push(firstArgType.value);
+// 		} else if (firstArgType.isUnion() && firstArgType.types.every((type) => type.isStringLiteral())) {
+// 			keyWithNamespaces.push(...firstArgType.types.map((type) => typeChecker.typeToString(type)));
+// 		}
+// 	}
+
+// 	if (ts.isBinaryExpression(node)) {
+// 		const children = node.getChildren(sourceFile).filter((child) => !ts.isBinaryOperatorToken(child));
+// 		const isStaticKey = children.every((child) => ts.isStringLiteral(child) || ts.isNoSubstitutionTemplateLiteral(child));
+
+// 		const keyWithNamespace = children.map((child) => child.getText(sourceFile).slice(1, -1)).join('');
+
+// 		if (isStaticKey) {
+// 			keyWithNamespaces.push(keyWithNamespace);
+// 		}
+// 	}
+
+// 	// TODO: add support for dynamic keys here
+// 	if (ts.isConditionalExpression(node)) {
+// 		const possibleValues = node
+// 			.getChildren(sourceFile)
+// 			.filter((child) => ts.isStringLiteral(child) || ts.isNoSubstitutionTemplateLiteral(child))
+// 			.map((child) => child.getText(sourceFile));
+
+// 		if (possibleValues.length) keyWithNamespaces.push(...possibleValues);
+// 	}
+
+// 	return keyWithNamespaces;
+// };
+
+export const parseFile = (filePath: string, options: OptionsWithDefault) => {
+	const sourceFile = getSourceFile(filePath);
 
 	const nodes: TranslationNode[] = [];
 
@@ -59,18 +126,21 @@ export const parseFile = (filePath: string, options: OptionsWithDefault) => {
 
 			if (isStaticKey) keyWithNamespaces.push(firstArgText);
 
-			// if (firstArg && (ts.isTemplateExpression(firstArg) || ts.isIdentifier(firstArg))) {
+			if (firstArg && (ts.isTemplateExpression(firstArg) || ts.isIdentifier(firstArg) || ts.isAsExpression(firstArg))) {
+				const typeChecker = getTypeChecker(filePath);
+				const firstArgType = typeChecker.getTypeAtLocation(firstArg);
 
-			// }
+				if (firstArgType.isStringLiteral()) {
+					keyWithNamespaces.push(firstArgType.value);
+				} else if (firstArgType.isUnion() && firstArgType.types.every((type) => type.isStringLiteral())) {
+					keyWithNamespaces.push(...firstArgType.types.map((type) => typeChecker.typeToString(type)));
+				}
+			}
 
+			// TODO: add support for dynamic keys here
 			if (firstArg && ts.isBinaryExpression(firstArg)) {
 				const children = firstArg.getChildren(sourceFile).filter((child) => !ts.isBinaryOperatorToken(child));
 				const isStaticKey = children.every((child) => ts.isStringLiteral(child) || ts.isNoSubstitutionTemplateLiteral(child));
-
-				console.log(
-					children.map((child) => child.getText(sourceFile)),
-					children.map((child) => ts.isStringLiteral(child) || ts.isNoSubstitutionTemplateLiteral(child))
-				);
 
 				const keyWithNamespace = children.map((child) => child.getText(sourceFile).slice(1, -1)).join('');
 
@@ -79,6 +149,7 @@ export const parseFile = (filePath: string, options: OptionsWithDefault) => {
 				}
 			}
 
+			// TODO: add support for dynamic keys here
 			if (firstArg && ts.isConditionalExpression(firstArg)) {
 				const possibleValues = firstArg
 					.getChildren(sourceFile)

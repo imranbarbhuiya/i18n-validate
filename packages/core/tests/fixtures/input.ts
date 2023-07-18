@@ -1,4 +1,4 @@
-// eslint-disable-next-line id-length
+/* eslint-disable id-length */
 const t = (key: string, _variables?: Record<string, string>) => key;
 
 t('a:Hello world');
@@ -11,7 +11,9 @@ t("'b'");
 
 t(`ab`);
 
-console.log(t(`a:${a}`));
+const k = `a:${a}` as const;
+
+console.log(t(k));
 
 const b = 'b';
 
@@ -33,3 +35,16 @@ t(`a:${'b'}k`);
 
 // eslint-disable-next-line no-useless-concat
 t('a' + 'b');
+
+declare const l: 'a:b' | 'c:b';
+
+t(l);
+
+const m = 'a:b' as 'a:b' | 'c:b';
+
+t(m);
+
+t(`a:${m}` as const);
+
+// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+t(a ? `a:${a}` : 'b');

@@ -19,7 +19,7 @@
 -   Framework agnostic
 -   Supports Pluralization
 -   Fully customizable
--   Use of ternary operator or string concatenation using `+` operator is supported
+-   Supports dynamic keys using typescript const types
 
 ## Usage
 
@@ -29,17 +29,15 @@ npx i18n-validate
 
 <!-- prettier-ignore-start -->
 ```sh
-Usage: i18n-validate [options] <file ...>
+Usage: cli [options] <file ...>
 
 Options:
   -V, --version           output the version number
   -c, --config <config>   Path to the config file (default:
                           "./i18n-validate.json")
-  --log-level <logLevel>  Log level (default: "info")
-  --exclude <exclude...>  Exclude files from parsing (default:
-                          "**/node_modules/**")
-  --exit-on-error         Exit immediately if an error is found (default:
-                          false)
+  --log-level <logLevel>  Log level
+  --exclude <exclude...>  Exclude files from parsing
+  --exit-on-error         Exit immediately if an error is found
   -h, --help              display help for command
 
   Examples:
@@ -47,13 +45,46 @@ Options:
     $ i18next-validate "/path/to/src/app.js"
     $ i18next-validate --config i18n-validate-custom.json 'src/**/*.{js,jsx}'
     $ i18next-validate --exclude "**/node_modules/**" "src/**/*.{js,jsx}"
+
 ```
 <!-- prettier-ignore-end -->
 
--   You can ignore a specific function by adding `// i18n-validate-disable-next-line` comment before the function call or ignore all the functions in a file by adding `/* i18n-validate-disable */` comment at the top of the file.
--   Dynamic keys aren't supported yet but ternary operators, string concatenation using `+` operator are supported.
-
 > **Note**: Currently, `i18n-validate` supports `typescript` and `javascript` (including `tsx` and `jsx`) source files and `json` translation files only.
+
+### Ignoring function or file
+
+You can ignore a specific function by adding `// i18n-validate-disable-next-line` comment before the function call or ignore all the functions in a file by adding `/* i18n-validate-disable */` comment at the top of the file.
+
+### Dynamic keys
+
+For dynamic keys, we check the typescript type of the key. If the type is a `const` type, the type is used as the key. Otherwise, the key is ignored. Type can be an union type or a literal type.
+
+```ts
+const a = 'namespace:key1';
+
+t(a);
+
+const b = `namespace:${b}` as const;
+
+t(b);
+
+t(`namespace:${b}` as const);
+
+declare const c: 'namespace:key3' | 'namespace:key4';
+
+t(c);
+
+/**
+ * @type {'a:key5' | 'a:key6'}
+ */
+const d = `a:${b}`;
+
+t(d);
+
+const e = /** @type {'a:key7' | 'a:key8'} */ `a:${b}`;
+
+t(e);
+```
 
 ### Use with lint-staged
 
@@ -104,7 +135,6 @@ If you want to support me by donating, you can do so by using any of the followi
 -   [ ] A github action
 -   [ ] An eslint plugin
 -   [ ] A `--fix` flag to remove unused keys and variables
--   [ ] Support dynamic keys using comments
 
 _Any help to complete these tasks will be highly appreciated._
 
