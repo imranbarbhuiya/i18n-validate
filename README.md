@@ -59,6 +59,8 @@ You can ignore a specific function by adding `// i18n-validate-disable-next-line
 
 For dynamic keys, we check the typescript type of the key. If the type is a `const` type, the type is used as the key. Otherwise, the key is ignored. Type can be an union type or a literal type.
 
+For ts files
+
 ```ts
 const a = 'namespace:key1';
 
@@ -73,7 +75,11 @@ t(`namespace:${b}` as const);
 declare const c: 'namespace:key3' | 'namespace:key4';
 
 t(c);
+```
 
+For js files
+
+```js
 /**
  * @type {'a:key5' | 'a:key6'}
  */
@@ -81,7 +87,7 @@ const d = `a:${b}`;
 
 t(d);
 
-const e = /** @type {'a:key7' | 'a:key8'} */ `a:${b}`;
+const e = /** @type {'a:key7' | 'a:key8'} */ (`a:${b}`);
 
 t(e);
 ```
