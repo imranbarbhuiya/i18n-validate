@@ -63,8 +63,10 @@ const glob = new Glob(options.inputs, {
 
 let errorCount = 0;
 let warningCount = 0;
+let fileCount = 0;
 
 for await (const file of glob) {
+	fileCount++;
 	log(`Parsing ${file}`, 'debug', options);
 	const translationNodes = parseFile(file, options);
 
@@ -96,10 +98,12 @@ for await (const file of glob) {
 
 const timeTaken = `${(performance.now() - start).toFixed(2)}ms`;
 
-if (errorCount > 0) {
-	log(`Found ${errorCount + warningCount} issues (${errorCount} errors and ${warningCount} warnings). Time taken ${timeTaken}`, 'info', options);
-	process.exit(1);
-} else {
-	log(`Found ${errorCount + warningCount} issues (${errorCount} errors and ${warningCount} warnings). Time taken ${timeTaken}`, 'info', options);
-	process.exit(0);
-}
+log(
+	`Found ${errorCount + warningCount} issues${
+		errorCount || warningCount ? ` (${errorCount} errors and ${warningCount} warnings)` : ''
+	}.Validated ${fileCount} in ${timeTaken}`,
+	'info',
+	options
+);
+
+process.exit(errorCount > 0 ? 1 : 0);
