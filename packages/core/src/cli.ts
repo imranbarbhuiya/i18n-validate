@@ -11,6 +11,8 @@ import { parseFile } from './parseFile.js';
 import { parseOptionsFile } from './parseOptionsFile.js';
 import { validateKey } from './validateKey.js';
 
+const start = performance.now();
+
 const command = new Command()
 	.version('[VI]{{inject}}[/VI]')
 	.usage('[options] <file ...>')
@@ -92,10 +94,12 @@ for await (const file of glob) {
 	}
 }
 
+const timeTaken = `${(performance.now() - start).toFixed(2)}ms`;
+
 if (errorCount > 0) {
-	log(`Found ${errorCount} errors and ${warningCount} warnings`, 'info', options);
+	log(`Found ${errorCount + warningCount} issues (${errorCount} errors and ${warningCount} warnings). Time taken ${timeTaken}`, 'info', options);
 	process.exit(1);
 } else {
-	log(`Found ${errorCount} errors and ${warningCount} warnings`, 'info', options);
+	log(`Found ${errorCount + warningCount} issues (${errorCount} errors and ${warningCount} warnings). Time taken ${timeTaken}`, 'info', options);
 	process.exit(0);
 }
