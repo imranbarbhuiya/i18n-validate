@@ -110,11 +110,16 @@ export type OptionsWithDefault = typeof defaultOption;
 export async function parseOptionsFile(cliOptions: OptionsWithDefault): Promise<OptionsWithDefault> {
 	const config = cliOptions.config;
 	const configUrl = join(process.cwd(), config).replaceAll('\\', '/');
-	const options = await import(`file://${configUrl}`, {
-		assert: {
-			type: 'json'
-		}
-	}).catch(() => ({
+	const options = await import(
+		`file://${configUrl}`,
+		configUrl.endsWith('.json')
+			? {
+					assert: {
+						type: 'json'
+					}
+			  }
+			: undefined
+	).catch(() => ({
 		default: {}
 	}));
 

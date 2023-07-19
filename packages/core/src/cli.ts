@@ -107,7 +107,7 @@ const timeTaken = `${(performance.now() - start).toFixed(2)}ms`;
 log(
 	`Found ${errorCount + warningCount} issues${
 		errorCount || warningCount ? ` (${errorCount} errors and ${warningCount} warnings)` : ''
-	}.Validated ${fileCount} file${fileCount > 1 ? 's' : ''} in ${timeTaken}`,
+	}. Checked ${fileCount} file${fileCount > 1 ? 's' : ''} in ${timeTaken}`,
 	'info',
 	options
 );

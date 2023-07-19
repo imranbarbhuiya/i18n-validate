@@ -7,18 +7,25 @@ import { type TranslationNode } from './parseFile.js';
 
 import type { OptionsWithDefault } from './parseOptionsFile.js';
 
-const importedFiles = new Map<string, Promise<Record<string, unknown>>>();
+const importedFiles = new Map<string, Promise<{ default: Record<string, unknown> }>>();
 
 const importLocaleFile = async (url: string, options: OptionsWithDefault) => {
 	if (importedFiles.has(url)) return importedFiles.get(url)!;
 
 	log(`Fetching translation keys from ${url}`, 'debug', options);
 
-	const promise = import(`file://${url}`, {
-		assert: {
-			type: 'json'
-		}
-	});
+	const promise = import(
+		`file://${url}`,
+		url.endsWith('.json')
+			? {
+					assert: {
+						type: 'json'
+					}
+			  }
+			: undefined
+	) as Promise<{
+		default: Record<string, unknown>;
+	}>;
 
 	importedFiles.set(url, promise);
 
