@@ -14,18 +14,17 @@ const importLocaleFile = async (url: string, options: OptionsWithDefault) => {
 
 	log(`Fetching translation keys from ${url}`, 'debug', options);
 
-	const promise = import(
-		`file://${url}`,
-		url.endsWith('.json')
-			? {
-					assert: {
-						type: 'json'
-					}
-			  }
-			: undefined
-	) as Promise<{
-		default: Record<string, unknown>;
-	}>;
+	let promise: Promise<{ default: Record<string, unknown> }>;
+
+	if (url.endsWith('.json')) {
+		promise = import(`file://${url}`, {
+			assert: {
+				type: 'json'
+			}
+		});
+	} else {
+		promise = import(`file://${url}`);
+	}
 
 	importedFiles.set(url, promise);
 
