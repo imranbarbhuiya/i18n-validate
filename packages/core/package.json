@@ -1,6 +1,6 @@
 {
 	"name": "i18n-validate",
-	"version": "1.4.0",
+	"version": "1.4.1",
 	"description": "A cli tool to find invalid i18n keys, missing variables and many more",
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
