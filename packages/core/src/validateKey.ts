@@ -53,7 +53,7 @@ export const validateKey = async (node: TranslationNode, options: OptionsWithDef
 			: json[key]
 	) as string | undefined;
 
-	if (!value && options.pluralSuffixes.length > 0 && variables.includes('count')) {
+	if (value === undefined && options.pluralSuffixes.length > 0 && variables.includes('count')) {
 		const pluralizedKeys = options.pluralSuffixes.map((suffix) => `${node.key}${options.pluralSeparator}${suffix}`);
 
 		const relatedKey = Object.keys(json).find((key) => pluralizedKeys.includes(key));
@@ -61,7 +61,7 @@ export const validateKey = async (node: TranslationNode, options: OptionsWithDef
 		if (relatedKey) value = json[relatedKey] as string;
 	}
 
-	if (!value) {
+	if (value === undefined) {
 		log(new ValidationError(`Invalid translation key: ${key}`, node.path, node.positions), 'error', options);
 
 		return false;

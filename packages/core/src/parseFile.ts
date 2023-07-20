@@ -128,12 +128,16 @@ export const parseFile = (filePath: string, options: OptionsWithDefault) => {
 
 			if (firstArg && (ts.isTemplateExpression(firstArg) || ts.isIdentifier(firstArg) || ts.isAsExpression(firstArg))) {
 				const typeChecker = getTypeChecker(filePath);
-				const firstArgType = typeChecker.getTypeAtLocation(firstArg);
+				try {
+					const firstArgType = typeChecker.getTypeAtLocation(firstArg);
 
-				if (firstArgType.isStringLiteral()) {
-					keyWithNamespaces.push(firstArgType.value);
-				} else if (firstArgType.isUnion() && firstArgType.types.every((type) => type.isStringLiteral())) {
-					keyWithNamespaces.push(...firstArgType.types.map((type) => typeChecker.typeToString(type)));
+					if (firstArgType.isStringLiteral()) {
+						keyWithNamespaces.push(firstArgType.value);
+					} else if (firstArgType.isUnion() && firstArgType.types.every((type) => type.isStringLiteral())) {
+						keyWithNamespaces.push(...firstArgType.types.map((type) => typeChecker.typeToString(type)));
+					}
+				} catch {
+					// can't get type of firstArg, so ignore it
 				}
 			}
 

@@ -61,7 +61,7 @@
 			"description": "Path to translation files. You can use `{{lng}}` for language and `{{ns}}` for namespace"
 		},
 		"logLevel": {
-			"type": "string",
+			"enum": ["debug", "info", "warn", "error"],
 			"default": "info",
 			"description": "Log level"
 		},

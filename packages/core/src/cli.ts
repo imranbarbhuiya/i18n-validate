@@ -85,6 +85,7 @@ for await (const file of glob) {
 			);
 			warningCount++;
 		} else if (node.key && node.namespace) {
+			log(`Validating ${node.key} in ${node.namespace}`, 'debug', options);
 			const valid = await validateKey(node, options);
 			if (!valid) errorCount++;
 		} else {
