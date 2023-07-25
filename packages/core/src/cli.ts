@@ -3,7 +3,7 @@
 import process from 'node:process';
 
 import { Command } from 'commander';
-import { Glob } from 'glob';
+import { stream } from 'fast-glob';
 
 import { ValidationError } from './Error.js';
 import { log } from './logger.js';
@@ -37,6 +37,7 @@ const options = await parseOptionsFile(program.opts());
 options.inputs = program.args.length > 0 ? program.args : options.inputs;
 
 if (!Array.isArray(options.inputs)) options.inputs = [options.inputs];
+if (!Array.isArray(options.exclude)) options.exclude = [options.exclude];
 
 options.inputs = options.inputs
 	.map((_input) => {
@@ -57,7 +58,7 @@ if (options.inputs.length === 0) {
 	process.exit(1);
 }
 
-const glob = new Glob(options.inputs, {
+const glob = stream(options.inputs, {
 	ignore: options.exclude
 });
 
@@ -68,7 +69,7 @@ let fileCount = 0;
 for await (const file of glob) {
 	fileCount++;
 	log(`Parsing ${file}`, 'debug', options);
-	const translationNodes = parseFile(file, options);
+	const translationNodes = parseFile(file.toString(), options);
 
 	for (const node of translationNodes) {
 		if (!node.isStaticKey) {
