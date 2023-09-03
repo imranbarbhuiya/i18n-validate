@@ -19,9 +19,9 @@
 	"devDependencies": {
 		"@commitlint/cli": "^17.7.1",
 		"@commitlint/config-conventional": "^17.7.0",
-		"@favware/cliff-jumper": "^2.1.1",
+		"@favware/cliff-jumper": "^2.1.2",
 		"@favware/npm-deprecate": "^1.0.7",
-		"@types/node": "^20.5.6",
+		"@types/node": "^20.5.9",
 		"@vitest/coverage-v8": "^0.34.3",
 		"cz-conventional-changelog": "^3.3.0",
 		"esbuild-plugin-version-injector": "^1.2.0",
@@ -29,7 +29,7 @@
 		"eslint-config-mahir": "^0.0.31",
 		"husky": "^8.0.3",
 		"lint-staged": "^14.0.1",
-		"prettier": "^3.0.2",
+		"prettier": "^3.0.3",
 		"tsup": "^7.2.0",
 		"turbo": "^1.10.13",
 		"vitest": "^0.34.3"
