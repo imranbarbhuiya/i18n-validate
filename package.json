@@ -27,7 +27,7 @@
 		"esbuild-plugin-version-injector": "^1.2.1",
 		"eslint": "^8.56.0",
 		"eslint-config-mahir": "^0.0.36",
-		"husky": "^8.0.3",
+		"husky": "^9.0.6",
 		"lint-staged": "^15.2.0",
 		"prettier": "^3.2.4",
 		"tsup": "^8.0.1",
