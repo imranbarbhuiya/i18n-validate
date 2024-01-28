@@ -36,8 +36,8 @@
 	"devDependencies": {
 		"@favware/cliff-jumper": "^2.2.3",
 		"@favware/npm-deprecate": "^1.0.7",
-		"@types/node": "^20.11.5",
-		"@vitest/coverage-v8": "^1.2.1",
+		"@types/node": "^20.11.8",
+		"@vitest/coverage-v8": "^1.2.2",
 		"esbuild-plugin-version-injector": "^1.2.1",
 		"eslint": "^8.56.0",
 		"eslint-config-mahir": "^0.0.36",
@@ -45,7 +45,7 @@
 		"lint-staged": "^15.2.0",
 		"prettier": "^3.2.4",
 		"tsup": "^8.0.1",
-		"vitest": "^1.2.1"
+		"vitest": "^1.2.2"
 	},
 	"files": [
 		"dist/**/*.js*",
