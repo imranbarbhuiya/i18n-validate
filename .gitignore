@@ -149,3 +149,5 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+# turbo
+.turbo
