@@ -1024,12 +1024,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20.11.13":
-  version: 20.11.13
-  resolution: "@types/node@npm:20.11.13"
+"@types/node@npm:^20.11.16":
+  version: 20.11.16
+  resolution: "@types/node@npm:20.11.16"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 10/ffe143dd5e52d0d29f5bcea165b752c5355eaff8b6b933441108b540419e14c0c7e0e7912783e914125ab957e30db93f9c827e8dd437ec7e5f03def995e9a5e6
+  checksum: 10/751f50ec5c9332b11515e82fe37c71479ac4449b711280aa3c7910edf67b1e3f5ac00041512add543f9a892096a68356406998bf02a2c809a73d176c44c28414
   languageName: node
   linkType: hard
 
@@ -3924,12 +3924,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"husky@npm:^9.0.7":
-  version: 9.0.7
-  resolution: "husky@npm:9.0.7"
+"husky@npm:^9.0.10":
+  version: 9.0.10
+  resolution: "husky@npm:9.0.10"
   bin:
-    husky: bin.js
-  checksum: 10/c5673acb9f224b6d2b36ee4892c6b99dbe9a077b041aee6013efeacb71d2d2cbe6ab7fac061f68fa5653c7dbe93aacfeed69eea01f755688e4c36c4044dcc5c0
+    husky: bin.mjs
+  checksum: 10/c303f1862e2b63873605df55a2b08303155e35c799585d7dd677628f62d716e7304bd984fc7d00ec44e740caac07d51720d1a0abb0a23a70a38859d89eb8e72d
   languageName: node
   linkType: hard
 
@@ -3948,16 +3948,16 @@ __metadata:
   dependencies:
     "@favware/cliff-jumper": "npm:^2.2.3"
     "@favware/npm-deprecate": "npm:^1.0.7"
-    "@types/node": "npm:^20.11.13"
+    "@types/node": "npm:^20.11.16"
     "@vitest/coverage-v8": "npm:^1.2.2"
     commander: "npm:^12.0.0"
     esbuild-plugin-version-injector: "npm:^1.2.1"
     eslint: "npm:^8.56.0"
     eslint-config-mahir: "npm:^0.0.37"
     fast-glob: "npm:^3.3.2"
-    husky: "npm:^9.0.7"
+    husky: "npm:^9.0.10"
     lint-staged: "npm:^15.2.1"
-    prettier: "npm:^3.2.4"
+    prettier: "npm:^3.2.5"
     tsup: "npm:^8.0.1"
     typescript: "npm:^5.3.3"
     vitest: "npm:^1.2.2"
@@ -5829,6 +5829,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prettier@npm:^3.2.5":
+  version: 3.2.5
+  resolution: "prettier@npm:3.2.5"
+  bin:
+    prettier: bin/prettier.cjs
+  checksum: 10/d509f9da0b70e8cacc561a1911c0d99ec75117faed27b95cc8534cb2349667dee6351b0ca83fa9d5703f14127faa52b798de40f5705f02d843da133fc3aa416a
+  languageName: node
+  linkType: hard
+
 "pretty-format@npm:^29.7.0":
   version: 29.7.0
   resolution: "pretty-format@npm:29.7.0"
@@ -6241,17 +6250,17 @@ __metadata:
     "@commitlint/config-conventional": "npm:^18.6.0"
     "@favware/cliff-jumper": "npm:^2.2.3"
     "@favware/npm-deprecate": "npm:^1.0.7"
-    "@types/node": "npm:^20.11.13"
+    "@types/node": "npm:^20.11.16"
     "@vitest/coverage-v8": "npm:^1.2.2"
     cz-conventional-changelog: "npm:^3.3.0"
     esbuild-plugin-version-injector: "npm:^1.2.1"
     eslint: "npm:^8.56.0"
     eslint-config-mahir: "npm:^0.0.37"
-    husky: "npm:^9.0.7"
+    husky: "npm:^9.0.10"
     lint-staged: "npm:^15.2.1"
-    prettier: "npm:^3.2.4"
+    prettier: "npm:^3.2.5"
     tsup: "npm:^8.0.1"
-    turbo: "npm:^1.12.0"
+    turbo: "npm:^1.12.2"
     vitest: "npm:^1.2.2"
   languageName: unknown
   linkType: soft
@@ -7035,58 +7044,58 @@ __metadata:
   languageName: node
   linkType: hard
 
-"turbo-darwin-64@npm:1.12.0":
-  version: 1.12.0
-  resolution: "turbo-darwin-64@npm:1.12.0"
+"turbo-darwin-64@npm:1.12.2":
+  version: 1.12.2
+  resolution: "turbo-darwin-64@npm:1.12.2"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-darwin-arm64@npm:1.12.0":
-  version: 1.12.0
-  resolution: "turbo-darwin-arm64@npm:1.12.0"
+"turbo-darwin-arm64@npm:1.12.2":
+  version: 1.12.2
+  resolution: "turbo-darwin-arm64@npm:1.12.2"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-linux-64@npm:1.12.0":
-  version: 1.12.0
-  resolution: "turbo-linux-64@npm:1.12.0"
+"turbo-linux-64@npm:1.12.2":
+  version: 1.12.2
+  resolution: "turbo-linux-64@npm:1.12.2"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-linux-arm64@npm:1.12.0":
-  version: 1.12.0
-  resolution: "turbo-linux-arm64@npm:1.12.0"
+"turbo-linux-arm64@npm:1.12.2":
+  version: 1.12.2
+  resolution: "turbo-linux-arm64@npm:1.12.2"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-windows-64@npm:1.12.0":
-  version: 1.12.0
-  resolution: "turbo-windows-64@npm:1.12.0"
+"turbo-windows-64@npm:1.12.2":
+  version: 1.12.2
+  resolution: "turbo-windows-64@npm:1.12.2"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-windows-arm64@npm:1.12.0":
-  version: 1.12.0
-  resolution: "turbo-windows-arm64@npm:1.12.0"
+"turbo-windows-arm64@npm:1.12.2":
+  version: 1.12.2
+  resolution: "turbo-windows-arm64@npm:1.12.2"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo@npm:^1.12.0":
-  version: 1.12.0
-  resolution: "turbo@npm:1.12.0"
+"turbo@npm:^1.12.2":
+  version: 1.12.2
+  resolution: "turbo@npm:1.12.2"
   dependencies:
-    turbo-darwin-64: "npm:1.12.0"
-    turbo-darwin-arm64: "npm:1.12.0"
-    turbo-linux-64: "npm:1.12.0"
-    turbo-linux-arm64: "npm:1.12.0"
-    turbo-windows-64: "npm:1.12.0"
-    turbo-windows-arm64: "npm:1.12.0"
+    turbo-darwin-64: "npm:1.12.2"
+    turbo-darwin-arm64: "npm:1.12.2"
+    turbo-linux-64: "npm:1.12.2"
+    turbo-linux-arm64: "npm:1.12.2"
+    turbo-windows-64: "npm:1.12.2"
+    turbo-windows-arm64: "npm:1.12.2"
   dependenciesMeta:
     turbo-darwin-64:
       optional: true
@@ -7102,7 +7111,7 @@ __metadata:
       optional: true
   bin:
     turbo: bin/turbo
-  checksum: 10/5aba15ff397f0f6afcef2f5796bbcf9e0a4f90a8db0348700a1eebe8297982a5d278bd26b2490acc0d5d52e5f764392452c6e92d5d34187339096bbbd8a0b3ee
+  checksum: 10/1b662df29b8c459a3c2ab863c7d14b9b7fa738e86e207b936090a5c6f1a96c87f0b1efd34e57c9b84135235481d07cfc5c7fed93d6678b89b38f2286495fe2aa
   languageName: node
   linkType: hard
 
