@@ -1,4 +1,4 @@
-import { type TranslationNode } from './parseFile.js';
+import type { TranslationNode } from './parseFile.js';
 
 export class ValidationError extends Error {
 	public stack: string;

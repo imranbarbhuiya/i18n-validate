@@ -96,11 +96,9 @@ export const parseFile = (filePath: string, options: OptionsWithDefault) => {
 				try {
 					const firstArgType = typeChecker.getTypeAtLocation(firstArg);
 
-					if (firstArgType.isStringLiteral()) {
-						keyWithNamespaces.push(firstArgType.value);
-					} else if (firstArgType.isUnion() && firstArgType.types.every((type) => type.isStringLiteral())) {
+					if (firstArgType.isStringLiteral()) keyWithNamespaces.push(firstArgType.value);
+					else if (firstArgType.isUnion() && firstArgType.types.every((type) => type.isStringLiteral()))
 						keyWithNamespaces.push(...firstArgType.types.map((type) => typeChecker.typeToString(type)));
-					}
 				} catch {
 					// can't get type of firstArg, so ignore it
 				}
@@ -113,9 +111,7 @@ export const parseFile = (filePath: string, options: OptionsWithDefault) => {
 
 				const keyWithNamespace = children.map((child) => child.getText(sourceFile).slice(1, -1)).join('');
 
-				if (isStaticKey) {
-					keyWithNamespaces.push(keyWithNamespace);
-				}
+				if (isStaticKey) keyWithNamespaces.push(keyWithNamespace);
 			}
 
 			// TODO: add support for dynamic keys here
@@ -137,9 +133,7 @@ export const parseFile = (filePath: string, options: OptionsWithDefault) => {
 					let variables: string[] = [];
 					if (secondArg && ts.isObjectLiteralExpression(secondArg)) {
 						variables = secondArg.properties.map((prop) => {
-							if (prop.name) {
-								return prop.name.getText(sourceFile);
-							}
+							if (prop.name) return prop.name.getText(sourceFile);
 
 							return '';
 						});

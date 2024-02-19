@@ -22,9 +22,7 @@ const importLocaleFile = async (url: string, options: OptionsWithDefault) => {
 				type: 'json'
 			}
 		});
-	} else {
-		promise = import(`file://${url}`);
-	}
+	} else promise = import(`file://${url}`);
 
 	importedFiles.set(url, promise);
 
