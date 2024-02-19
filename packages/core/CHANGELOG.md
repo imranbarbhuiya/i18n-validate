@@ -6,51 +6,51 @@ All notable changes to this project will be documented in this file.
 
 ### 🐛 Bug Fixes
 
-- Empty string check ([09ac1d2](https://github.com/imranbarbhuiya/i18n-validate/commit/09ac1d23ebe08eecfe4c1562c16d7ac4e0bdba30))
-- Dynamic import ([58b2196](https://github.com/imranbarbhuiya/i18n-validate/commit/58b21966f8ef1c0365f2d05516435c6bceb773a2))
-- Jsconfig url ([708b1b0](https://github.com/imranbarbhuiya/i18n-validate/commit/708b1b082b99889d1293ac07d2db8d66aa2800aa))
-- Add file count ([2b2002c](https://github.com/imranbarbhuiya/i18n-validate/commit/2b2002cdca4ea31edc76bb2d018c378a161b7ee5))
-- Add time taken log ([91a1533](https://github.com/imranbarbhuiya/i18n-validate/commit/91a153309bbfef7450b46cced9091a68ccb6e9f8))
+-   Empty string check ([09ac1d2](https://github.com/imranbarbhuiya/i18n-validate/commit/09ac1d23ebe08eecfe4c1562c16d7ac4e0bdba30))
+-   Dynamic import ([58b2196](https://github.com/imranbarbhuiya/i18n-validate/commit/58b21966f8ef1c0365f2d05516435c6bceb773a2))
+-   Jsconfig url ([708b1b0](https://github.com/imranbarbhuiya/i18n-validate/commit/708b1b082b99889d1293ac07d2db8d66aa2800aa))
+-   Add file count ([2b2002c](https://github.com/imranbarbhuiya/i18n-validate/commit/2b2002cdca4ea31edc76bb2d018c378a161b7ee5))
+-   Add time taken log ([91a1533](https://github.com/imranbarbhuiya/i18n-validate/commit/91a153309bbfef7450b46cced9091a68ccb6e9f8))
 
 ### 🚀 Features
 
-- Support dynamic key using ts type ([3673637](https://github.com/imranbarbhuiya/i18n-validate/commit/36736374577a15030a80929870de98fb43d520a7))
-- Support ternary and string concatenation in key ([943682f](https://github.com/imranbarbhuiya/i18n-validate/commit/943682f7aefac0da152ae2ae240c1c314c6d1f16))
+-   Support dynamic key using ts type ([3673637](https://github.com/imranbarbhuiya/i18n-validate/commit/36736374577a15030a80929870de98fb43d520a7))
+-   Support ternary and string concatenation in key ([943682f](https://github.com/imranbarbhuiya/i18n-validate/commit/943682f7aefac0da152ae2ae240c1c314c6d1f16))
 
 ## [i18n-validate@1.4.1](https://github.com/imranbarbhuiya/i18n-validate/compare/v1.2.1...i18n-validate@1.4.1) - (2023-07-19)
 
 ### 🐛 Bug Fixes
 
-- Jsconfig url ([708b1b0](https://github.com/imranbarbhuiya/i18n-validate/commit/708b1b082b99889d1293ac07d2db8d66aa2800aa))
-- Add file count ([2b2002c](https://github.com/imranbarbhuiya/i18n-validate/commit/2b2002cdca4ea31edc76bb2d018c378a161b7ee5))
-- Add time taken log ([91a1533](https://github.com/imranbarbhuiya/i18n-validate/commit/91a153309bbfef7450b46cced9091a68ccb6e9f8))
+-   Jsconfig url ([708b1b0](https://github.com/imranbarbhuiya/i18n-validate/commit/708b1b082b99889d1293ac07d2db8d66aa2800aa))
+-   Add file count ([2b2002c](https://github.com/imranbarbhuiya/i18n-validate/commit/2b2002cdca4ea31edc76bb2d018c378a161b7ee5))
+-   Add time taken log ([91a1533](https://github.com/imranbarbhuiya/i18n-validate/commit/91a153309bbfef7450b46cced9091a68ccb6e9f8))
 
 ### 🚀 Features
 
-- Support dynamic key using ts type ([3673637](https://github.com/imranbarbhuiya/i18n-validate/commit/36736374577a15030a80929870de98fb43d520a7))
-- Support ternary and string concatenation in key ([943682f](https://github.com/imranbarbhuiya/i18n-validate/commit/943682f7aefac0da152ae2ae240c1c314c6d1f16))
+-   Support dynamic key using ts type ([3673637](https://github.com/imranbarbhuiya/i18n-validate/commit/36736374577a15030a80929870de98fb43d520a7))
+-   Support ternary and string concatenation in key ([943682f](https://github.com/imranbarbhuiya/i18n-validate/commit/943682f7aefac0da152ae2ae240c1c314c6d1f16))
 
 ## [i18n-validate@1.4.0](https://github.com/imranbarbhuiya/i18n-validate/compare/v1.2.1...i18n-validate@1.4.0) - (2023-07-18)
 
 ### 🐛 Bug Fixes
 
-- Add file count ([2b2002c](https://github.com/imranbarbhuiya/i18n-validate/commit/2b2002cdca4ea31edc76bb2d018c378a161b7ee5))
-- Add time taken log ([91a1533](https://github.com/imranbarbhuiya/i18n-validate/commit/91a153309bbfef7450b46cced9091a68ccb6e9f8))
+-   Add file count ([2b2002c](https://github.com/imranbarbhuiya/i18n-validate/commit/2b2002cdca4ea31edc76bb2d018c378a161b7ee5))
+-   Add time taken log ([91a1533](https://github.com/imranbarbhuiya/i18n-validate/commit/91a153309bbfef7450b46cced9091a68ccb6e9f8))
 
 ### 🚀 Features
 
-- Support dynamic key using ts type ([3673637](https://github.com/imranbarbhuiya/i18n-validate/commit/36736374577a15030a80929870de98fb43d520a7))
-- Support ternary and string concatenation in key ([943682f](https://github.com/imranbarbhuiya/i18n-validate/commit/943682f7aefac0da152ae2ae240c1c314c6d1f16))
+-   Support dynamic key using ts type ([3673637](https://github.com/imranbarbhuiya/i18n-validate/commit/36736374577a15030a80929870de98fb43d520a7))
+-   Support ternary and string concatenation in key ([943682f](https://github.com/imranbarbhuiya/i18n-validate/commit/943682f7aefac0da152ae2ae240c1c314c6d1f16))
 
 ## [i18n-validate@1.3.0](https://github.com/imranbarbhuiya/i18n-validate/compare/v1.2.1...i18n-validate@1.3.0) - (2023-07-18)
 
 ### 🐛 Bug Fixes
 
-- Add time taken log ([91a1533](https://github.com/imranbarbhuiya/i18n-validate/commit/91a153309bbfef7450b46cced9091a68ccb6e9f8))
+-   Add time taken log ([91a1533](https://github.com/imranbarbhuiya/i18n-validate/commit/91a153309bbfef7450b46cced9091a68ccb6e9f8))
 
 ### 🚀 Features
 
-- Support ternary and string concatenation in key ([943682f](https://github.com/imranbarbhuiya/i18n-validate/commit/943682f7aefac0da152ae2ae240c1c314c6d1f16))
+-   Support ternary and string concatenation in key ([943682f](https://github.com/imranbarbhuiya/i18n-validate/commit/943682f7aefac0da152ae2ae240c1c314c6d1f16))
 
 ## [1.2.1](https://github.com/imranbarbhuiya/i18n-validate/compare/v1.2.0...v1.2.1) - (2023-07-16)
 

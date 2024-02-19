@@ -43,9 +43,7 @@ options.inputs = options.inputs
 	.map((_input) => {
 		let input = _input.trim().replaceAll('\\', '/');
 
-		if (/^'.*'$|^".*"$/.test(input)) {
-			input = input.slice(1, -1);
-		}
+		if (/^'.*'$|^".*"$/.test(input)) input = input.slice(1, -1);
 
 		return input;
 	})
@@ -99,9 +97,7 @@ for await (const file of glob) {
 		}
 	}
 
-	if (errorCount > 0 && options.exitOnError) {
-		break;
-	}
+	if (errorCount > 0 && options.exitOnError) break;
 }
 
 const timeTaken = `${(performance.now() - start).toFixed(2)}ms`;
