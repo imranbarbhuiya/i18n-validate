@@ -29,14 +29,14 @@
 		"i18next-lint"
 	],
 	"dependencies": {
-		"commander": "^12.0.0",
+		"commander": "^12.1.0",
 		"fast-glob": "^3.3.2",
 		"typescript": "^5.4.5"
 	},
 	"devDependencies": {
 		"@favware/cliff-jumper": "^3.0.3",
 		"@favware/npm-deprecate": "^1.0.7",
-		"@types/node": "^20.12.11",
+		"@types/node": "^20.12.12",
 		"@vitest/coverage-v8": "^1.6.0",
 		"esbuild-plugin-version-injector": "^1.2.1",
 		"eslint": "^8.57.0",
