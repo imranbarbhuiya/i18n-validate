@@ -1373,12 +1373,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20.12.11":
-  version: 20.12.11
-  resolution: "@types/node@npm:20.12.11"
+"@types/node@npm:^20.12.12":
+  version: 20.12.12
+  resolution: "@types/node@npm:20.12.12"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 10/c6afe7c2c4504a4f488814d7b306ebad16bf42cbb43bf9db9fe1aed8c5fb99235593c3be5088979a64526b106cf022256688e2f002811be8273d87dc2e0d484f
+  checksum: 10/e3945da0a3017bdc1f88f15bdfb823f526b2a717bd58d4640082d6eb0bd2794b5c99bfb914b9e9324ec116dce36066990353ed1c777e8a7b0641f772575793c4
   languageName: node
   linkType: hard
 
@@ -2404,6 +2404,13 @@ __metadata:
   version: 12.0.0
   resolution: "commander@npm:12.0.0"
   checksum: 10/62062e2ffe6abd5aa42a551e62fd5eb9b2620f6ac4299382b2aa9fb02f95cda0242d7e84acb890479bd6491edb805f7f91aecb5b4f5c70dc57df49ed7f02ef14
+  languageName: node
+  linkType: hard
+
+"commander@npm:^12.1.0":
+  version: 12.1.0
+  resolution: "commander@npm:12.1.0"
+  checksum: 10/cdaeb672d979816853a4eed7f1310a9319e8b976172485c2a6b437ed0db0a389a44cfb222bfbde772781efa9f215bdd1b936f80d6b249485b465c6cb906e1f93
   languageName: node
   linkType: hard
 
@@ -4362,9 +4369,9 @@ __metadata:
   dependencies:
     "@favware/cliff-jumper": "npm:^3.0.3"
     "@favware/npm-deprecate": "npm:^1.0.7"
-    "@types/node": "npm:^20.12.11"
+    "@types/node": "npm:^20.12.12"
     "@vitest/coverage-v8": "npm:^1.6.0"
-    commander: "npm:^12.0.0"
+    commander: "npm:^12.1.0"
     esbuild-plugin-version-injector: "npm:^1.2.1"
     eslint: "npm:^8.57.0"
     eslint-config-mahir: "npm:^0.0.43"
@@ -6676,7 +6683,7 @@ __metadata:
     "@commitlint/config-conventional": "npm:^19.2.2"
     "@favware/cliff-jumper": "npm:^3.0.3"
     "@favware/npm-deprecate": "npm:^1.0.7"
-    "@types/node": "npm:^20.12.11"
+    "@types/node": "npm:^20.12.12"
     "@vitest/coverage-v8": "npm:^1.6.0"
     cz-conventional-changelog: "npm:^3.3.0"
     esbuild-plugin-version-injector: "npm:^1.2.1"
