@@ -21,7 +21,7 @@
 		"@commitlint/config-conventional": "^19.2.2",
 		"@favware/cliff-jumper": "^3.0.3",
 		"@favware/npm-deprecate": "^1.0.7",
-		"@types/node": "^20.12.12",
+		"@types/node": "^20.13.0",
 		"@vitest/coverage-v8": "^1.6.0",
 		"cz-conventional-changelog": "^3.3.0",
 		"esbuild-plugin-version-injector": "^1.2.1",
@@ -29,7 +29,7 @@
 		"eslint-config-mahir": "^0.0.43",
 		"husky": "^9.0.11",
 		"lint-staged": "^15.2.5",
-		"prettier": "^3.2.5",
+		"prettier": "^3.3.0",
 		"tsup": "^8.0.2",
 		"turbo": "^1.13.3",
 		"vitest": "^1.6.0"
