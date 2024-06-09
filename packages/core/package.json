@@ -34,7 +34,7 @@
 		"typescript": "^5.4.5"
 	},
 	"devDependencies": {
-		"@favware/cliff-jumper": "^3.0.3",
+		"@favware/cliff-jumper": "^4.0.2",
 		"@favware/npm-deprecate": "^1.0.7",
 		"@types/node": "^20.13.0",
 		"@vitest/coverage-v8": "^1.6.0",
