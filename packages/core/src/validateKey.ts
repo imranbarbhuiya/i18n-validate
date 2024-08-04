@@ -47,7 +47,7 @@ export const validateKey = async (node: TranslationNode, options: OptionsWithDef
 
 	let value = (
 		key.includes(options.keySeparator)
-			? json[key] ?? key.split(options.keySeparator).reduce((acc, cur) => acc[cur] as Record<string, unknown>, json)
+			? (json[key] ?? key.split(options.keySeparator).reduce((acc, cur) => acc[cur] as Record<string, unknown>, json))
 			: json[key]
 	) as string | undefined;
 
