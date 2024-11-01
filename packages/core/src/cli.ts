@@ -3,7 +3,7 @@
 import process from 'node:process';
 
 import { Command } from 'commander';
-import { stream } from 'fast-glob';
+import fastGlob from 'fast-glob';
 
 import { ValidationError } from './Error.js';
 import { log } from './logger.js';
@@ -56,7 +56,7 @@ if (options.inputs.length === 0) {
 	process.exit(1);
 }
 
-const glob = stream(options.inputs, {
+const glob = fastGlob.stream(options.inputs, {
 	ignore: options.exclude
 });
 
