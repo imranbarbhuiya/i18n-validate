@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [i18n-validate@1.4.4](https://github.com/imranbarbhuiya/i18n-validate/compare/i18n-validate@1.4.3...i18n-validate@1.4.4) - (2024-11-01)
+
+### 🐛 Bug Fixes
+
+- Esm import and with import ([401a361](https://github.com/imranbarbhuiya/i18n-validate/commit/401a3619f2964a87b59961d13bd917147ce5e933))
+
 ## [i18n-validate@1.4.3](https://github.com/imranbarbhuiya/i18n-validate/compare/i18n-validate@1.4.2...i18n-validate@1.4.3) - (2024-11-01)
 
 ### 🏃 Performance
