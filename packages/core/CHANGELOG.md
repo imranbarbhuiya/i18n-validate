@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [i18n-validate@1.4.3](https://github.com/imranbarbhuiya/i18n-validate/compare/i18n-validate@1.4.2...i18n-validate@1.4.3) - (2024-11-01)
+
+### 🏃 Performance
+
+- Use fast-glob ([09978ec](https://github.com/imranbarbhuiya/i18n-validate/commit/09978ec68cecd90dc8e0673f6a56f2372a5b99ac))
+
+### 🐛 Bug Fixes
+
+- **deps:** Update all non-major dependencies (#123) ([2311155](https://github.com/imranbarbhuiya/i18n-validate/commit/2311155f18b760a02f2abbc00bb946f77f5bb3e2))
+- **deps:** Update dependency commander to v12 (#72) ([8a37e45](https://github.com/imranbarbhuiya/i18n-validate/commit/8a37e4567ca3800dfdea7eecfd552b6b22735e55))
+- **deps:** Update all non-major dependencies ([4704ae5](https://github.com/imranbarbhuiya/i18n-validate/commit/4704ae587048fb9eceaf32ab1f5b1099d93d0fee))
+
 ## [i18n-validate@1.4.2](https://github.com/imranbarbhuiya/i18n-validate/compare/v1.2.1...i18n-validate@1.4.2) - (2023-07-20)
 
 ### 🐛 Bug Fixes

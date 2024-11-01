@@ -1,7 +1,7 @@
 {
 	"extends": "../../.eslintrc.json",
 	"rules": {
-		"n/shebang": [
+		"n/hashbang": [
 			"error",
 			{
 				"convertPath": {

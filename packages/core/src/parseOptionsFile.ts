@@ -115,7 +115,7 @@ export async function parseOptionsFile(cliOptions: OptionsWithDefault): Promise<
 
 	if (configUrl.endsWith('.json')) {
 		options = await import(`file://${configUrl}`, {
-			assert: {
+			with: {
 				type: 'json'
 			}
 		}).catch(() => ({
