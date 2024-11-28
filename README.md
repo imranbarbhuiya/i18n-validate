@@ -13,13 +13,13 @@
 
 ## Features
 
--   Written In Typescript
--   Offers CLI and API
--   Full TypeScript & JavaScript support
--   Framework agnostic
--   Supports Pluralization
--   Fully customizable
--   Supports dynamic keys using typescript const types
+- Written In Typescript
+- Offers CLI and API
+- Full TypeScript & JavaScript support
+- Framework agnostic
+- Supports Pluralization
+- Fully customizable
+- Supports dynamic keys using typescript const types
 
 ## Usage
 
@@ -133,14 +133,14 @@ If you want to support me by donating, you can do so by using any of the followi
 
 ## TODO
 
--   [ ] Write unit tests
--   [ ] Add support for `yaml`, `json5` translation files
--   [ ] Add support for other framework specific source files (e.g. `vue`, `svelte`, `angular` etc.)
--   [ ] Detect unused translation keys
--   [ ] A vscode extension
--   [ ] A github action
--   [ ] An eslint plugin
--   [ ] A `--fix` flag to remove unused keys and variables
+- [ ] Write unit tests
+- [ ] Add support for `yaml`, `json5` translation files
+- [ ] Add support for other framework specific source files (e.g. `vue`, `svelte`, `angular` etc.)
+- [ ] Detect unused translation keys
+- [ ] A vscode extension
+- [ ] A github action
+- [ ] An eslint plugin
+- [ ] A `--fix` flag to remove unused keys and variables
 
 _Any help to complete these tasks will be highly appreciated._
 

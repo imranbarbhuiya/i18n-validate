@@ -12,13 +12,13 @@
 
 ## Features
 
--   Written In Typescript
--   Offers CLI and API
--   Full TypeScript & JavaScript support
--   Framework agnostic
--   Supports Pluralization
--   Fully customizable
--   Supports dynamic keys using typescript const types
+- Written In Typescript
+- Offers CLI and API
+- Full TypeScript & JavaScript support
+- Framework agnostic
+- Supports Pluralization
+- Fully customizable
+- Supports dynamic keys using typescript const types
 
 ## Usage
 

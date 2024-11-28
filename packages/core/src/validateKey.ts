@@ -37,7 +37,7 @@ export const validateKey = async (node: TranslationNode, options: OptionsWithDef
 	const { default: json }: { default: Record<string, unknown> | null } = await importLocaleFile(url, options).catch(() => ({ default: null }));
 
 	if (!json) {
-		log(new ValidationError(`Invalid locale file: ${filePath}`, node.path, node.positions), 'error', options);
+		log(new ValidationError(`Invalid locale file: ${url}`, node.path, node.positions), 'error', options);
 
 		return false;
 	}

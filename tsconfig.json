@@ -1,7 +1,7 @@
 {
 	"compilerOptions": {
 		"target": "esnext",
-		"module": "node16",
+		"module": "preserve",
 		"strict": true,
 		"noImplicitAny": true,
 		"strictNullChecks": true,
@@ -11,12 +11,15 @@
 		"noUnusedParameters": true,
 		"noImplicitReturns": true,
 		"noFallthroughCasesInSwitch": true,
-		"moduleResolution": "node16",
-		"lib": ["es2021"],
+		"moduleResolution": "bundler",
+		"lib": ["esnext"],
 		"declaration": true,
 		"outDir": "dist",
 		"esModuleInterop": true,
-		"skipLibCheck": true
+		"skipLibCheck": true,
+		"noEmit": true,
+		"emitDeclarationOnly": true,
+		"allowJs": true
 	},
-	"includes": ["src/**/*.ts"]
+	"includes": ["src/**/*.ts", "eslint.config.mjs", "tsup.config.ts", "vitest.config.ts"]
 }

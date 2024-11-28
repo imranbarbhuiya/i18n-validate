@@ -12,9 +12,9 @@
 
 ## Features
 
--   Provides problem matcher for GitHub Actions
--   Fully customizable
--   Easy to use
+- Provides problem matcher for GitHub Actions
+- Fully customizable
+- Easy to use
 
 ## Usage
 
