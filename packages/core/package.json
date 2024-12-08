@@ -37,15 +37,15 @@
 		"@favware/cliff-jumper": "^5.0.0",
 		"@favware/npm-deprecate": "^2.0.0",
 		"@types/node": "^22.10.1",
-		"@vitest/coverage-v8": "^2.1.6",
+		"@vitest/coverage-v8": "^2.1.8",
 		"esbuild-plugin-version-injector": "^1.2.1",
-		"eslint": "^9.15.0",
+		"eslint": "^9.16.0",
 		"eslint-config-mahir": "^1.0.6",
 		"husky": "^9.1.7",
 		"lint-staged": "^15.2.10",
-		"prettier": "^3.4.1",
+		"prettier": "^3.4.2",
 		"tsup": "^8.3.5",
-		"vitest": "^2.1.6"
+		"vitest": "^2.1.8"
 	},
 	"files": [
 		"dist/**/*.js*",
