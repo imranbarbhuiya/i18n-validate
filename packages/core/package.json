@@ -29,7 +29,7 @@
 		"i18next-lint"
 	],
 	"dependencies": {
-		"commander": "^12.1.0",
+		"commander": "^13.0.0",
 		"fast-glob": "^3.3.2",
 		"typescript": "^5.7.2"
 	},
