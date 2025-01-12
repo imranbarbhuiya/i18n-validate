@@ -30,8 +30,8 @@
 	],
 	"dependencies": {
 		"commander": "^13.0.0",
-		"fast-glob": "^3.3.2",
-		"typescript": "^5.7.2"
+		"fast-glob": "^3.3.3",
+		"typescript": "^5.7.3"
 	},
 	"devDependencies": {
 		"@favware/cliff-jumper": "^5.0.0",
@@ -39,7 +39,7 @@
 		"@types/node": "^22.10.5",
 		"@vitest/coverage-v8": "^2.1.8",
 		"esbuild-plugin-version-injector": "^1.2.1",
-		"eslint": "^9.17.0",
+		"eslint": "^9.18.0",
 		"eslint-config-mahir": "^1.0.7",
 		"husky": "^9.1.7",
 		"lint-staged": "^15.3.0",
