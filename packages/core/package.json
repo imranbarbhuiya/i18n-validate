@@ -39,7 +39,7 @@
 		"@types/node": "^22.14.1",
 		"@vitest/coverage-v8": "^3.1.1",
 		"esbuild-plugin-version-injector": "^1.2.1",
-		"eslint": "^9.24.0",
+		"eslint": "^9.25.0",
 		"eslint-config-mahir": "^1.0.7",
 		"husky": "^9.1.7",
 		"lint-staged": "^15.5.1",
