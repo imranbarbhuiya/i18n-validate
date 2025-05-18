@@ -3823,6 +3823,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"commander@npm:^14.0.0":
+  version: 14.0.0
+  resolution: "commander@npm:14.0.0"
+  checksum: 10/c05418bfc35a3e8b5c67bd9f75f5b773f386f9b85f83e70e7c926047f270929cb06cf13cd68f387dd6e7e23c6157de8171b28ba606abd3e6256028f1f789becf
+  languageName: node
+  linkType: hard
+
 "commander@npm:^4.0.0":
   version: 4.1.1
   resolution: "commander@npm:4.1.1"
@@ -6028,7 +6035,7 @@ __metadata:
     "@favware/npm-deprecate": "npm:^2.0.0"
     "@types/node": "npm:^22.15.18"
     "@vitest/coverage-v8": "npm:^3.1.3"
-    commander: "npm:^13.1.0"
+    commander: "npm:^14.0.0"
     esbuild-plugin-version-injector: "npm:^1.2.1"
     eslint: "npm:^9.27.0"
     eslint-config-mahir: "npm:^1.0.7"
