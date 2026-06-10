@@ -31,7 +31,7 @@
 		"lint-staged": "^16.1.2",
 		"prettier": "^3.6.2",
 		"tsup": "^8.5.0",
-		"turbo": "^2.5.4",
+		"turbo": "^2.9.14",
 		"vitest": "^3.2.4"
 	},
 	"commitlint": {
